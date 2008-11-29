@@ -1,0 +1,2 @@
+Main-Class: msmd.gui.MainFrame
+Class-Path: lib/Tidy.jar lib/xerces.jar lib/kunststoff.jar

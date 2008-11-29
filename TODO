@@ -1,0 +1,14 @@
+In order of priority:
+
+- : Todo
++ : Done
+
+- Fix this:
+- Prevent .mtmp files from being left behind
+- Ensure originals aren't deleted - even on crash
+- License key
+- Make mangling work
+- Make GUI prettier
+- Implement add all files in dir
+- Work with any XML file, not always HTML
+- Auto-add of files in same dir as example dir in stage 2

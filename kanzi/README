@@ -1,0 +1,13 @@
+Cematics Kanzi 1.0 README
+
+Running Kanzi
+-------------
+
+  Run the included "kanzi" executable shell script.  The script assumes
+that Java 1.2 or higher is either installed in your path, or that the 
+JAVA_HOME variable is set.  
+
+Problems
+--------
+  Any problems, either in installation or using the product, should be
+directed to support@cematics.com.  

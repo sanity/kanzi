@@ -1,0 +1,417 @@
+<html>
+<head>
+<title>Inno Setup FAQ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body text="#000000" bgcolor="#ffffff" link="#274d99" vlink="#5a83d7" alink="#5a83d7">
+<basefont size=2>
+<table width="100%" border="0" cellpadding="5" cellspacing="0">
+   <tr>
+   <td align=center bgcolor="#264b99"><font face="verdana,arial" size=6 color="#FFFFFF"><b>Inno Setup</b></font><br>
+<font face="verdana,arial" size=4 color="#FFFFFF"><b>Frequently Asked Questions</b><br>
+</font></td>
+   </tr>
+</table>
+<font face="verdana,arial" size=2>
+
+<p><i>Last Updated: 2002-05-20</i>
+<p>Following are answers to some of the top questions I receive regarding Inno Setup.
+
+<h3>Functionality</h3>
+<ul>
+<li><a href="#lang">Translating Inno Setup's Text</a>
+<li><a href="#mbcs">Does it support MBCS (multi-byte character sets)?</a>
+<li><a href="#msi">Will it support Windows Installer in the future?</a>
+<li><a href="#setupicon">How do I change the icon of Setup.exe?</a>
+<li><a href="#conditional">Can Inno Setup do a conditional installation - for example, proceed only if a certain registry key or file exists?</a>
+<li><a href="#usercompany">Can Setup ask for a user and company name, or other additional information?</a>
+<li><a href="#webinstall">Is there a "web install" feature?</a>
+<li><a href="#silent">Is it possible to do a silent install without using the /SILENT or /VERYSILENT command-line parameters?</a>
+</ul>
+
+<h3>Problems</h3>
+<ul>
+<li><a href="#errorquotes">Compiler says "Mismatched or misplaced quotes on parameter"</a>
+<li><a href="#workingdir">My application can't find any of its files when it is started from the shortcut created by Setup. It works fine when I double-click the application's EXE in from Explorer.</a>
+<li><a href="#noregserver">Setup gives the message "Unable to register the DLL/OCX: DllRegisterServer export not found"</a>
+<li><a href="#emptydirs">After uninstalling, the directories created during installation still exist.</a>
+<li><a href="#batchfile">I run a batch file in the [Run] section, but the window remains on the screen after it finishes executing. I'd like it to "close on exit."</a>
+<li><a href="#olddir">I've changed DefaultDirName in my script, yet when I run Setup it wants to install to the old directory.</a>
+<li><a href="#twoicons">I have two [Icons] entries with the same Name, but only one of them gets installed.</a>
+<li><a href="#runwait">Setup isn't waiting for programs executed by [Run] entries to finish.</a>
+</ul>
+
+<h3>Installation Tasks</h3>
+<ul>
+<li><a href="#urls">Creating Internet (URL) Shortcuts</a>
+<li><a href="#quicklaunch">Creating Shortcuts on the Quick Launch Bar</a>
+<li><a href="#startin">Setting the "Start In" Field on a Shortcut</a>
+<li><a href="#assoc">Creating File Associations</a>
+<li><a href="#env">Setting Environment Variables</a>
+<li><a href="#closeonexit">Setting the "Close on Exit" Box on a Shortcut to an MS-DOS Program</a>
+<li><a href="#backup">Making Backups Before Replacing Files</a>
+<li><a href="#difffiles">Installing Different Files Depending on Windows Version</a>
+<li><a href="#custom">My installation needs to do something that Inno Setup apparently doesn't have a feature for.</a>
+</ul>
+
+<h3>How Do I Install...?</h3>
+<ul>
+<li><a href="#ocx">OCX Files</a>
+<li><a href="#vb">Visual Basic System Files</a>
+<li><a href="#vc">Visual C++ System Files (e.g. MFC)</a>
+<li><a href="#comctl32">COMCTL32.DLL</a>
+<li><a href="#bde">BDE (Borland Database Engine)</a>
+<li><a href="#mdac">MDAC, ADO, Jet, etc.</a>
+</ul>
+
+<h3>Compatibility</h3>
+<ul>
+<li><a href="#oscompat">OS Compatibility</a>
+<li><a href="#y2k">Y2K Compliance</a>
+<li><a href="#ntsecur">Windows NT/2000/XP & Administrative Privileges</a>
+</ul>
+
+<h3>Miscellaneous</h3>
+<ul>
+<li><a href="#limits">Are there any limits on how many files, etc. may be included in an installation?</a>
+<li><a href="#cancel">What exactly happens when the user clicks Cancel during an installation?</a>
+<li><a href="#name">What does the name "Inno Setup" mean?</a>
+</ul>
+
+
+
+<hr><h2>Functionality</h2>
+
+<h4><a name="lang">Translating Inno Setup's Text</a></h4>
+<blockquote>
+Translating Inno Setup's text into another language does not require modifying the source code. Simply make a copy of the Default.isl file (included with Inno Setup) and start editing the text in it. (Do not directly edit the Default.isl file, otherwise your changes will be lost when you install a new Inno Setup version.) See the "[Messages] Section" topic in the Inno Setup help file for some important tips.
+<p>Once you have finished creating the new .isl file, add a MessagesFile directive to your script's [Setup] section, to tell the compiler to use it:
+<p><font face="Courier New" size=2>
+[Setup]<br>
+MessagesFile=compiler:MyTranslation.isl
+</font>
+<p>There are many contributed translations available for download on the <a href="http://www.jrsoftware.org/is3rdparty.htm">Inno Setup Third-Party Files</a> page, as well as a program to assist in editing the .isl file.
+</blockquote>
+
+<h4><a name="mbcs">Does it support MBCS (multi-byte character sets)?</a></h4>
+<blockquote>
+Inno Setup 2.0.6 adds complete support for MBCS. It does lead byte checking on all filename and constant parsing, so it should no longer mistake trail bytes for backslashes ("\") or braces ("{").
+<br><br>
+Versions prior to 2.0.6 did not include any special support for MBCS.
+</blockquote>
+
+<h4><a name="msi">Will it support Windows Installer in the future?</a></h4>
+<blockquote>
+At the present time, I do not have plans for a Windows Installer edition of Inno Setup. "Supporting" Windows Installer would likely involve a near-complete rewrite of the program - something I don't have the time or interest to do.
+</blockquote>
+
+<h4><a name="setupicon">How do I change the icon of Setup.exe?</a></h4>
+<blockquote>
+This is not currently possible. However, I do intend to add an option for this in one of the next releases. This option would probably be NT/2000/XP-only, since Windows 95/98 lack the UpdateResource function which automates the process of changing resources in compiled EXEs.
+<p>But for now, there are some third-party programs such as <a href="http://www.davidcornish.com/">Inno Setup Icon Replacer</a>, <a href="http://www.MihaRemec.com/tools.html#ReplaceIcon">ReplaceIcon</a>, <a href="http://www.impactsoft.com/">Microangelo</a>, and <a href="http://rpi.net.au/~ajohnson/resourcehacker/">Resource Hacker</a> which are capable of changing the icon of Setup.exe.
+</blockquote>
+
+<h4><a name="conditional">Can Inno Setup do a conditional installation - for example, proceed only if a certain registry key or file exists?</a></h4>
+<blockquote>
+This sort of thing is not currently possible, but should be sometime in the future. Martijn Laan has been working on it in his <a href="http://www.wintax.nl/isx/">My Inno Setup Extensions</a>.
+<p>Note: It is currently possible to <a href="#difffiles">install different files depending on the Windows version</a>.
+</blockquote>
+
+<h4><a name="usercompany">Can Setup ask for a user and company name, or other additional information?</a></h4>
+<blockquote>
+This is not currently possible, but is in development for Inno Setup 3.0.
+</blockquote>
+
+<h4><a name="webinstall">Is there a "web install" feature?</a></h4>
+<blockquote>
+No, and at the time of this writing I don't have plans to add such a feature.
+</blockquote>
+
+<h4><a name="silent">Is it possible to do a silent install without using the /SILENT or /VERYSILENT command-line parameters?</a></h4>
+<blockquote>
+No, nor is such a feature planned (it would be abused). If it is your intention to keep user interaction to a minimum, use the Disable* [Setup] section directives.
+</blockquote>
+
+
+
+<hr><h2>Problems</h2>
+
+<h4><a name="errorquotes">Compiler says "Mismatched or misplaced quotes on parameter"</a></h4>
+<blockquote>
+This message is typically displayed if you try to embed a quote (") character in a parameter's data, but do not double it as required. Read the "Parameters in Sections" topic in the Inno Setup help file for more information.
+</blockquote>
+
+<h4><a name="workingdir">My application can't find any of its files when it is started from the shortcut created by Setup. It works fine when I double-click the application's EXE in from Explorer.</a></h4>
+<blockquote>
+Your application is most likely not specifying pathnames on the files it is trying to open, so it is expecting to find them in the current directory. Inno Setup by default will not set the "Start In" field of shortcuts, meaning Windows picks a current directory itself, which usually won't be the same directory as your application. Working around this is a trivial task; a "WorkingDir: {app}" parameter simply needs to be added to the [Icons] entry.
+<br><br>
+However, I would not recommend that as the best solution. In most cases, applications should not expect to be started from a particular directory. They should always specify full pathnames on files they open. In Delphi or C++Builder it's possible to get the full pathname of the directory containing the EXE by calling: <font face="Courier New" size=2>ExtractFilePath(ParamStr(0))</font>. If, for example, you wanted to reference a file named "File.txt", you would use: <font face="Courier New" size=2>ExtractFilePath(ParamStr(0)) + 'File.txt'</font>.
+</blockquote>
+
+<h4><a name="noregserver">Setup gives the message "Unable to register the DLL/OCX: DllRegisterServer export not found"</a></h4>
+<blockquote>
+This message normally means that you specified the "regserver" flag on a file that doesn't possess the ability to be registered. Remove the "regserver" flag from the [Files] entry and the message will go away.
+</blockquote>
+
+<h4><a name="emptydirs">After uninstalling, the directories created during installation still exist.</a></h4>
+<blockquote>
+There are several reasons why a directory may not be removed:
+<ul>
+<li>It already existed prior to installation. By default, the uninstaller plays it safe and doesn't remove directories that the installer didn't create.
+<li>It contains files or subdirectories. Use [UninstallDelete] if you need the uninstaller to delete additional files/directories.
+<li>A running process has the directory as its current directory.
+</ul>
+Note: In Inno Setup versions prior to 2.0.1, directories must be specified in either the [Dirs] or [UninstallDelete] sections for them to be deleted by the uninstaller. In newer Inno Setup versions, directories created by [Files] section entries will be deleted automatically by the uninstaller if they didn't exist prior to installation.
+</blockquote>
+
+<h4><a name="batchfile">I run a batch file in the [Run] section, but the window remains on the screen after it finishes executing. I'd like it to "close on exit."</a></h4>
+<blockquote>
+From Tim Rude:<br>
+The simplest way to get a batch file to automatically close on exit is to clear the screen at the end of it using the CLS command.
+<p><i>--- batch file 1 ---</i>
+<p><font face="Courier New" size=2>
+@echo off<br>
+echo Hello World<br>
+echo This batch file does NOT close on exit
+</font>
+<p><i>--- batch file 2 ---</i>
+<p><font face="Courier New" size=2>
+@echo off<br>
+echo Hello World<br>
+echo This batch file DOES close on exit<br>
+cls
+</font>
+</blockquote>
+
+<h4><a name="olddir">I've changed DefaultDirName in my script, yet when I run Setup it wants to install to the old directory.</a></h4>
+<blockquote>
+This isn't a bug, but a feature. At startup Setup will look in the registry to see if the same application is already installed, and if so, it will use the directory of the previous installation as the default directory presented to the user in the wizard. If you uninstall the application and run Setup again, it should use the new DefaultDirName setting. If you wish to disable this feature, set UsePreviousAppDir to "no".
+</blockquote>
+
+<h4><a name="twoicons">I have two [Icons] entries with the same Name, but only one of them gets installed.</a></h4>
+<blockquote>
+Two files can't have the same name, and since shortcuts are files, two shortcuts therefore can't have the same name.
+</blockquote>
+
+<h4><a name="runwait">Setup isn't waiting for a program executed by a [Run] entry to finish.</a></h4>
+<blockquote>
+First, verify that are not using the "nowait" or "waituntilidle" flags on the [Run] entry. These flags cause Setup to not wait until the process completely terminates.
+<br><br>
+If you aren't using those flags and it still doesn't seem to be waiting for the program to finish, then likely what is happening is that the EXE you're running is spawning some other process and then terminating itself immediately, causing Setup to think the program has finished. This is known to happen with older InstallShield installers.
+<br><br>
+A simple way to check if a program does that is to run "START /WAIT ProgramName.exe" from the command line, and see if you are returned to the command prompt before the program exits.
+</blockquote>
+
+
+
+<hr><h2>Installation Tasks</h2>
+
+<h4><a name="urls">Creating Internet (URL) Shortcuts</a></h4>
+<blockquote>
+First create a file named, for example, "website.url", and place these lines inside it:
+<p><font face="Courier New" size=2>[InternetShortcut]<br>
+URL=http://web.site.address/
+</font>
+<p>Then add these lines to your script:
+<p><font face="Courier New" size=2>[Files]<br>
+Source: "website.url"; DestDir: "{app}"<br>
+<br>
+[Icons]<br>
+Name: "{group}\Visit My Web Site"; Filename: "{app}\website.url"<br>
+</font>
+</blockquote>
+
+<h4><a name="quicklaunch">Creating Shortcuts on the Quick Launch Bar</a></h4>
+<blockquote>
+Upgrade to at least Inno Setup 1.3.11, then use:
+<p><font face="Courier New" size=2>[Icons]<br>
+Name: "{userappdata}\Microsoft\Internet Explorer\Quick Launch\My Program"; Filename: "{app}\MyProg.exe"<br>
+</font>
+</blockquote>
+
+<h4><a name="startin">Setting the "Start In" Field on a Shortcut</a></h4>
+<blockquote>
+Use a WorkingDir parameter on the [Icons] section entry.
+</blockquote>
+
+<h4><a name="assoc">Creating File Associations</a></h4>
+<blockquote>
+First set the [Setup] section directive "ChangesAssociations" to "yes". Then create [Registry] entries as shown below. <!--! <i>Note:</i> The indented lines are continuations of the preceding lines. -->
+
+<p><font face="Courier New" size=2>
+[Registry]<br>
+Root: HKCR; Subkey: ".myp"; ValueType: string; ValueName: ""; ValueData: "MyProgramFile"; Flags: uninsdeletevalue
+</font>
+<blockquote>
+".myp" is the extension we're associating. "MyProgramFile" is the internal name for the file type as stored in the registry. Make sure you use a unique name for this so you don't inadvertently overwrite another application's registry key.
+</blockquote>
+
+<p><font face="Courier New" size=2>
+Root: HKCR; Subkey: "MyProgramFile"; ValueType: string; ValueName: ""; ValueData: "My Program File"; Flags: uninsdeletekey
+</font>
+<blockquote>
+"My Program File" above is the name for the file type as shown in Explorer.
+</blockquote>
+
+<p><font face="Courier New" size=2>
+Root: HKCR; Subkey: "MyProgramFile\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\MYPROG.EXE,0"
+</font>
+<blockquote>
+"DefaultIcon" is the registry key that specifies the filename containing the icon to associate with the file type. ",0" tells Explorer to use the first icon from MYPROG.EXE. (",1" would mean the second icon.)
+</blockquote>
+
+<p><font face="Courier New" size=2>
+Root: HKCR; Subkey: "MyProgramFile\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\MYPROG.EXE"" ""%1"""
+</font>
+<blockquote>
+"shell\open\command" is the registry key that specifies the program to execute when a file of the type is double-clicked in Explorer. The surrounding quotes are in the command line so it handles long filenames correctly.
+</blockquote>
+</blockquote>
+
+<h4><a name="env">Setting Environment Variables</a></h4>
+<blockquote>
+On Windows NT/2000/XP, environment variables are stored as string values in the registry, so it is possible to manipulate them using the [Registry] section. System-wide environment variables are located at:
+<blockquote>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager\Environment</blockquote>
+User-specific environment variables are located at:
+<blockquote>HKEY_CURRENT_USER\Environment</blockquote>
+On Windows 95/98/Me, you'll need to modify AUTOEXEC.BAT to set environment variables. Inno Setup does not include any built-in feature for that, however you could write a small program to do that and execute it via the [Run] section (<a href="#custom">more info</a>).
+</blockquote>
+
+<h4><a name="closeonexit">Setting the "Close on Exit" Box on a Shortcut to an MS-DOS Program</a></h4>
+<blockquote>
+Inno Setup version 1.3.15 and later includes support for "closeonexit" and "dontcloseonexit" flags in the [Icons] section.
+</blockquote>
+
+<h4><a name="backup">Making Backups Before Replacing Files</a></h4>
+<blockquote>
+Inno Setup does not currently have a specific feature for doing that, but you can make a copy of a file before it is replaced by using a [Files] section entry similar to this:
+<p><font face="Courier New" size=2>Source: "{app}\MyProg.exe"; DestDir: "{app}\backup"; Flags: external skipifsourcedoesntexist uninsneveruninstall</font>
+</blockquote>
+
+<h4><a name="difffiles">Installing Different Files Depending on Windows Version</a></h4>
+<blockquote>
+That can be done via MinVersion and/or OnlyBelowVersion parameters on an entry. See the Common Parameters topic in the documentation for details.
+<p>Here is a simple example of how to install one file on NT platforms (Windows NT/2000/XP) and another file on non-NT platforms (Windows 95/98/Me):
+<p><font face="Courier New" size=2>[Files]<br>
+Source: "{app}\WinNT2000XP.exe"; DestDir: "{app}"; MinVersion: 0, 1<br>
+Source: "{app}\Win9598Me.exe";   DestDir: "{app}"; MinVersion: 1, 0</font>
+<p>"0" means never install; "1" means install on any version (i.e. version 1.0 or later).
+<p>Note: The above technique isn't limited to the [Files] section; MinVersion and OnlyBelowVersion can be used in most sections.
+</blockquote>
+
+<h4><a name="custom">My installation needs to do something that Inno Setup apparently doesn't have a feature for.</a></h4>
+<blockquote>
+See the How-To article <a href="http://www.jrsoftware.org/ishowto.phtml?a=custom">Implementing Custom Functionality</a>.
+</blockquote>
+
+
+
+<hr><h2>How Do I Install...?</h2>
+
+<h4><a name="ocx">OCX Files</h4>
+<blockquote>
+The recommended way to install OCX files is as follows. (Note: The following is a single line.)
+<p><font face="Courier New" size=2>
+Source: "ComCtl32.ocx"; DestDir: "{sys}"; CopyMode: alwaysskipifsameorolder; Flags: restartreplace sharedfile regserver
+</font>
+</blockquote>
+
+<h4><a name="vb">Visual Basic System Files</a></h4>
+<blockquote>
+With VB 3.0 and earlier it's easy -- just copy the appropriate VBRUN???.DLL file to the user's system directory and you're done. For VB 4.0, I don't know. For VB 5.0 and 6.0, see <a href="http://www.jrsoftware.org/ishowto.phtml?a=vb">this How-To article</a>.
+</blockquote>
+
+<h4><a name="vc">Visual C++ System Files (e.g. MFC)</a></h4>
+<blockquote>
+See <a href="http://www.jrsoftware.org/ishowto.phtml?a=vc">this How-To article</a>.
+</blockquote>
+
+<h4><a name="comctl32">COMCTL32.DLL</a></h4>
+<blockquote>
+You can direct your users to <a href="http://www.microsoft.com/msdownload/ieplatform/ie/comctrlx86.asp">download</a> the COMCTL32 update from Microsoft, or distribute the COMCTL32 update along with your program. 
+Microsoft does not allow separate redistribution of COMCTL32.DLL (and for good reason), so you should never place COMCTL32.DLL in a script's [Files] section.
+</blockquote>
+
+<h4><a name="bde">BDE (Borland Database Engine)</a></h4>
+<blockquote>
+See the How-To article <a href="http://www.jrsoftware.org/ishowto.phtml?a=bde">Installing BDE</a> for details on deploying the 32-bit version of BDE using Inno Setup.
+</blockquote>
+
+<h4><a name="mdac">MDAC, ADO, Jet, etc.</a></h4>
+<blockquote>
+See <a href="http://www.jrsoftware.org/ishowto.phtml?a=dcommdac">this How-To article</a>.
+</blockquote>
+
+
+
+<hr><h2>Compatibility</h2>
+
+<h4><a name="oscompat">OS Compatibility</a></h4>
+<blockquote>
+Currently supported platforms include Windows 95, 98, 2000, XP, Me, NT 3.51, and NT 4.0.
+<br><br>
+I currently use and develop on Windows 2000 primarily, so Windows 2000 compatibility is foremost.
+<br><br>
+When new major features are introduced, I usually test them personally on all supported Windows versions.
+<br><br>
+The 16-bit version of Inno Setup has been discontinued starting with version 1.3. The older 1.2.x version is still available for download, though, if you really need a 16-bit installer.
+</blockquote>
+
+<h4><a name="y2k">Y2K Compliance</a></h4>
+<blockquote>
+Inno Setup has been fully Y2K compliant ever since version 1.09 at least. Prior versions of Inno Setup most likely were Y2K compliant too, but I have not gone back and tested them.
+<br><br>
+The only time the installer looks at dates is when it compares time stamps on files it copies. And the only time this is done is when processing [Files] section entries that use the <i>comparetimestamp</i> flag. The 16-bit version of Inno Setup 1.11i and later can properly handle files with years up to 2107, the maximum for the 16-bit Windows API (versions prior to 1.11i supported years up to 2043). The 32-bit version of Inno Setup has had no limit on the year since version 1.09.
+</blockquote>
+
+<h4><a name="ntsecur">Windows NT/2000/XP & Administrative Privileges</a></h4>
+<blockquote>
+A typical Inno Setup installation running on Windows NT/2000/XP does not require administrative or "power user" privileges. However, there are exceptions as noted below.
+<p>Things that require administrative privileges on both Windows NT/2000/XP:
+<ul>
+<li>Using "AdminPrivilegesRequired=yes" in the script's [Setup] section. This causes Setup to abort with an error message if the user lacks administrative privileges. (The default setting for the AdminPrivilegesRequired directive is "no".)
+<li>Using the "restartreplace" flag in the [Files] section. This flag causes Inno Setup to call the MoveFileEx function, which attempts to write to "HKEY_LOCAL_MACHINE\ SYSTEM\ CurrentControlSet\ Session Manager". Write access to this key is restricted to Administrators.
+<li>Writing to any key under HKEY_USERS\.DEFAULT using the [Registry] section. Write access to this key is restricted to Administrators.
+</ul>
+<p>Things that require <i>either</i> administrative or "power user" privileges on Windows 2000/XP:
+<ul>
+<li>Using the "regserver" flag in the [Files] section. In most cases registering a DLL involves writing to HKEY_CLASSES_ROOT, a privilege not granted to ordinary users.
+<li>Using the "sharedfile" flag is the [Files] section. This flag causes Inno Setup to create/update a value in "HKEY_LOCAL_MACHINE\ SOFTWARE\ Microsoft\ Windows\ CurrentVersion\ SharedDLLs". Ordinary users are not allowed to write to that key.
+<li>Using the FontInstall parameter in the [Files] section.
+<li>Writing to any key under HKEY_LOCAL_MACHINE or HKEY_CLASSES_ROOT using the [Registry] section. Ordinary users are not allowed to write to those keys.
+</ul>
+<p>Inno Setup itself does not require write access to the WINNT directory, or any other registry keys not mentioned above.
+<p>What is different when an installation is run by a user <i>without</i> administrative privileges?
+<ul>
+<li>The registry key for the <i>Add/Remove Programs</i> Control Panel entry is created under HKEY_CURRENT_USER instead of HKEY_LOCAL_MACHINE. Thus, only the user who installed the program will see an <i>Add/Remove Programs</i> entry for it.
+<li>The "{group}" constant always points to the current user's profile, as opposed to the All Users profile.
+<li>All "{common...}" constants are equivalent to the "{user...}" constants.
+<li>The program may be uninstalled by any user. (When an administrator installs a program, only an administrator is allowed to uninstall it.)
+</ul>
+</blockquote>
+
+
+
+<hr><h2>Miscellaneous</h2>
+
+<h4><a name="limits">Are there any limits on how many files, etc. may be included in an installation?</a></h4>
+<blockquote>
+Inno Setup places no arbitrary limits on how many files, shortcuts, registry entries, etc. that you may include in an installation. However, keep in mind that Setup does need memory for each entry in a script. For example, roughly 120 bytes of memory is needed for each [Files] entry.
+<p>
+The total size of all files in an installation currently cannot exceed 2 GB, because it does not use 64-bit arithmetic in several places. If you try to use more than 2 GB, the free disk space check and/or progress bar will not work properly. I plan to address this in the future.
+</blockquote>
+
+<h4><a name="cancel">What exactly happens when the user clicks Cancel during an installation?</a></h4>
+<blockquote>
+When Cancel is clicked, Setup will begin reverting changes it's made so far in the very same manner as the Uninstall program. Thus, a partially installed application isn't left over.
+</blockquote>
+
+<h4><a name="name">What does the name "Inno Setup" mean?</a></h4>
+<blockquote>
+It was actually short for "Inno<i>vative</i> Setup". (So it's pronounced <i>IN-NO</i>, not <i>EYE-NO</i>.) This was a name I assigned to it when I first started development on it and it stuck. :)
+</blockquote>
+
+
+</font>
+</body>
+</html>

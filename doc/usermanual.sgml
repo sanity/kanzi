@@ -1,0 +1,157 @@
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook V4.2//EN">
+<book>
+  <title>Kanzi 1.0 User Manual
+  </title>
+  <chapter><title>Introduction</title>
+    <para>This is the User Manual for Kanzi, Cematics' intelligent web
+      development tool. Kanzi is designed to bring the flexibility of tools
+      that computer programmers have been using for years, to the world
+      of web development. Kanzi's core goal is to integrate seamlessly
+      with the web development tools with which you are already familiar,
+      meaning that you can get started with it immediately.
+   </para>
+    <para>Kanzi is useful when you need to make changes to a large number
+      of web pages. You demonstrate the changes you need made on one of
+      the pages using your favourite HTML editing tool, and Kanzi will
+      intelligently figure out what has changed, and how those changes
+      are to be applied to the other pages you have selected.
+    </para>
+  </chapter>
+  <chapter><title>Installation and Registration</title>
+    <sect1>
+      <title>Requirements</title>
+      <para>
+        Kanzi requires Java version 1.2 or greater. This may be downloaded
+        from <ulink url="http://java.sun.com/getjava/" name="">http://java.sun.com/getjava</ulink>, and will 
+        require just a couple of minutes to install for most
+        users. Kanzi will work on any version of Windows that supports Java,
+        including Windows 98, Windows 2000, Windows NT, Windows XP, and Windows
+        ME.
+      </para>
+    </sect1>
+    <sect1>
+      <title>Installation</title>
+      <para>
+        Double click on the Kanzi installer, which you can download from
+        <ulink url="http://cematics.com/site.php/kanzi/">
+          http://cematics.com/site.php/kanzi/</ulink>
+        , and follow the steps in the installation Wizard which appears.
+        In most cases, you will not need to change any of the default settings.
+      </para>
+    </sect1>
+    <sect1>
+      <title>Registration</title>
+      <para>Initially when you install Kanzi it will be in evaluation mode,
+        this will be indicated by the words "Evaluation Version" at the bottom
+        of the Kanzi window. This is designed to allow you to determine whether
+        Kanzi is useful to you before purchasing it, but it cannot be used
+        with a real website as it randomly replaces text with a warning message
+        in any web pages that it modifies.
+      </para><para>To use Kanzi properly, you must obtain a license key. This may
+        be purchased from <ulink url="http://cematics.com/site.php/kanzi">http://cematics.com/site.php/kanzi</ulink>.
+      </para>
+      <para>After purchasing the license key, it will be emailed to the address
+        you provided. To register, follow these simple steps:
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem><para>Launch Kanzi</para></listitem>
+          <listitem><para>Click on the "Register Now" button</para></listitem>
+          <listitem><para>Copy the license key from the email (Ctrl+C) including the lines
+            containing the words "BEGIN" and "END".
+          </para></listitem>
+          <listitem><para>Click on "OK"</para></listitem>
+        </itemizedlist>
+      </para>
+      <para>If you have any problems with this, please contact Cematics Support
+        at support@cematics.com, please include the email address that you
+        used to register Kanzi.
+      </para>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>Using Kanzi</title>
+    <para>There are three basic steps to using Kanzi:
+    </para>
+    <para>
+      <itemizedlist>
+        <listitem><para>Select the "example" file, and make the changes you want to it</para></listitem>
+        <listitem><para>Select the files to which you want those changes to be applied</para></listitem>
+        <listitem><para>Review the changes Kanzi made, then either commit or undo them</para></listitem>
+      </itemizedlist>
+    </para>
+    <sect1>
+      <title>Training Kanzi</title>
+      <para>When you first start Kanzi, you will be invited to select the
+        "example" file. This should be one of the HTML pages that you want
+        to modify. You should then use your favourite HTML editor to make
+        the modifications to that page that you want to apply to the other
+        pages, and save it.
+      </para>
+      <para>Once you have saved the file, you will be able to click on "Next"
+        and move on to the next step.
+      </para>
+    </sect1>
+    <sect1>
+      <title>Selecting target pages</title>
+      <para>Next you must select the pages to which you would like Kanzi
+        to apply these changes. You can select each file individually using
+        the "Add File(s)" button, or add all HTML files in a directory using
+        the "Add a Directory" button.
+      </para>
+      <para>You may now decide which of these files you would like those
+        changes applied to, by clicking on them you may select and deselect
+        them. Only the selected files will be modified.
+      </para>
+      <para>A much more convenient way to select the files you would like
+        to modify is to use the Similarity Filter. You can activate it by
+        clicking on the check box. You may now move the slider up and down,
+        and files will be selected and deselected based on their similarity
+        to the example file which you modified in the previous step.
+      </para>
+      <para>Click "Next" when the files you wish to modify are highlighted.
+      </para>
+    </sect1>
+    <sect1>
+      <title>Reviewing changes</title>
+      <para>The changes will now be applied to the pages. This should occur
+        quite quickly, but the time required may vary depending on the extent
+        of the changes to the example page, and the number of target pages.
+      </para>
+      <para>You may now review the changes Kanzi has made to these pages.
+        You can launch a web-browser pointing at the (modified) example page
+        by clicking on "Review Your Documents". You should check the target
+        files to ensure that Kanzi has applied the changes correctly.
+      </para>
+      <para>If it has, you can apply the changes permenantly by clicking
+        on "Finish". You can undo the changes by clicking on "Undo".
+      </para>
+    </sect1>
+  </chapter>
+  <chapter>
+    <title>
+      Troubleshooting
+    </title>
+    <sect1>
+      <title>Kanzi applied my changes incorrectly</title>
+      <para>Kanzi is smart, but it does have limitations and may occasionally
+        apply your changes incorrectly. If this happens, try splitting up
+        the changes, first applying one set, then applying the other. The
+        fewer changes you make to the example document - the easier it is
+        for Kanzi.
+      </para>
+      <para>If this doesn't work, you should email the target document (before
+        and after your edit), and one of the documents to which the change
+        was misapplied (before any modification) to support@cematics.com
+        for us to take a look. We will do our best to determine why Kanzi
+        failed and will send you the next revision of Kanzi when it is ready.
+      </para>
+    </sect1>
+    <sect1>
+      <title>Kanzi crashed unexpectedly</title>
+      <para>Send an email to support@cematics.com explaining the circumstances
+        under which Kanzi crashed.
+      </para>
+    </sect1>
+  </chapter>
+</book>

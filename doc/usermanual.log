@@ -1,0 +1,171 @@
+This is TeX, Version 3.14159 (Web2C 7.3.7) (format=jadetex 2002.9.24)  30 OCT 2002 11:35
+**usermanual.tex
+(./usermanual.tex
+JadeTeX 2002/01/25: 3.12
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 1.
+(/usr/share/texmf/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
+Elements will be labelled
+Jade begin document sequence at 20
+(./usermanual.aux)
+\openout1 = `usermanual.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 20.
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 20.
+ (/usr/share/texmf/tex/latex/cyrillic/t2acmr.fd
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 20.
+
+(/usr/share/texmf/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for LECO/omseco/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for LECX/omsecx/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for LECY/omsecy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for LEGR/omsegr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for LEHA/omseha/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for LEIP/omseip/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for LELA/omsela/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for LETI/omseti/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+Package hyperref Info: Link coloring ON on input line 20.
+
+(/usr/share/texmf/tex/latex/hyperref/nameref.sty
+Package: nameref 2001/01/27 v2.19 Cross-referencing by name of section
+\c@section@level=\count114
+)
+LaTeX Info: Redefining \ref on input line 20.
+LaTeX Info: Redefining \pageref on input line 20.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 100.
+
+(/usr/share/texmf/tex/latex/psnfss/t1phv.fd
+File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
+)
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <24.883> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 100.
+ [1.0.31]
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 112.
+ [2.0.31]
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 182.
+
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <20.736> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 203.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 219.
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 542.
+
+[3.0.31
+
+]
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 631.
+
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 631.
+
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <17.28> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 673.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <17.28> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 673.
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 719.
+
+[1.0.31
+
+]
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 806.
+
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 806.
+
+LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <14.4> not available
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 887.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 1137
+.
+(/usr/share/texmf/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 1238.
+
+[2.0.31
+
+]
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 1325.
+
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 1325.
+
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 1784.
+
+[3.0.31
+
+]
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 1871.
+
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 1871.
+
+
+Package Fancyhdr Warning: fancyhdr's E option without twoside option is useless
+ on input line 2059.
+
+[4.0.31
+
+] (./usermanual.aux) ) 
+Here is how much of TeX's memory you used:
+ 353 strings out of 44343
+ 4715 string characters out of 345016
+ 220147 words of memory out of 348001
+ 13199 multiletter control sequences out of 10000+32500
+ 20436 words of font info for 28 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 1000
+ 28i,11n,43p,212b,1122s stack positions out of 1500i,500n,1500p,50000b,5000s
+
+Output written on usermanual.dvi (7 pages, 62688 bytes).

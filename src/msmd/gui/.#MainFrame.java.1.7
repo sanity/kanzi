@@ -1,0 +1,48 @@
+package msmd.gui;
+
+import javax.swing.*;
+import java.util.*;
+import java.awt.*;
+import java.awt.event.*;
+import msmd.DraftFile;
+
+/**
+ *  Description of the Class
+ *
+ * @author     ian
+ * @created    October 8, 2002
+ */
+public class MainFrame extends JFrame {
+  protected Wizard wiz;
+
+
+  MainFrame() {
+    super("Monkey-See, Monkey Do");
+    getContentPane().add(wiz = new Wizard());
+    pack();
+  }
+
+
+  public static void main(String[] args) throws Exception {
+    UIManager.setLookAndFeel(
+        UIManager.getSystemLookAndFeelClassName());
+    MainFrame m = new MainFrame();
+
+    m.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                DraftFile.revertAll();
+                System.exit(1);
+            }
+        });
+
+    m.wiz.add(new SourceChooser(m.wiz));
+    m.wiz.add(new MultiFileChooser(m.wiz));
+    m.wiz.add(new ApplyDiff(m.wiz));
+    m.wiz.add(new Review(m.wiz));
+    m.wiz.refresh();
+//    Splash s = new Splash("/home/scgmille/java/msmd/msmd.jpg", m, 2000);
+    m.show();
+  }
+}
+
+

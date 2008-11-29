@@ -1,0 +1,27 @@
+package msmd.tests;
+
+import msmd.*;
+import msmd.diff.*;
+import org.w3c.dom.*;
+import java.util.*;
+
+public class TestDiff {
+
+    public static void main(String[] args) throws Exception {
+        if (args.length < 2) {
+            System.err.println("usage: TestDiff original-file target-file");
+            System.exit(1);
+        }
+        
+        Document a=HTMLReader.readPage(args[0]);
+        Document b=HTMLReader.readPage(args[1]);
+
+        DOMDiff dd=new DOMDiff();
+        LinkedList ll=dd. getDiff(a, b);
+        System.err.println(ll.size() + " changes required:");
+        for (Iterator i=ll.iterator(); i.hasNext();) {
+            Difference d=(Difference)i.next();
+            System.out.println(d.toString());
+        }
+    }
+}

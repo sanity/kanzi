@@ -1,0 +1,241 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>My Inno Setup Extensions</title>
+<style>
+  <!--a            { text-decoration: none }
+-->
+  <!--a:hove       { text-decoration: underline }
+-->
+  <!--tt           { font-size: 100% }
+-->
+</style>
+</head>
+
+<body bgcolor="white" text="black" link="#0000FF" vlink="#0000FF" alink="#0000FF">
+
+<table width="100%">
+  <tr>
+    <td bgcolor="#0000FF"><b><font color="#FFFFFF" size="6" face="Verdana,Arial">My Inno Setup Extensions history</font></b></td>
+  </tr>
+  <tr>
+    <td>
+      <p><font size="-1" face="Verdana,Arial"><br>
+      </font><a href="http://www.wintax.nl/isx"><font size="-1" face="Verdana,Arial">My Inno Setup Extensions</font></a><font size="-1" face="Verdana,Arial"> 3.0 whatsnew.htm<br>
+      Copyright © 2000-2002 Martijn Laan. All rights reserved.<br>
+      <br>
+      Based on Inno Setup 3.0 whatsnew.htm<br>
+      Copyright © 1998-2002 <a href="http://www.jrsoftware.org/">Jordan Russell</a>. All rights reserved.<br>
+      Portions by Martijn Laan<br>
+      <br>
+      For conditions of distribution and use, see <a href="http://www.jrsoftware.org/files/is/license.txt">LICENSE.TXT</a>.</font></p>
+      <div align="center">
+        <center>
+        <table border="0" cellpadding="2" cellspacing="0" width="95%">
+          <tr>
+            <td bgcolor="#0000FF"><b><font face="Verdana,Arial"><font color="#FFFFFF" size="5">My Inno Setup Extensions
+              3.0.2-beta </font><font color="#FFFFFF" size="-2">(2002-06-04)</font></font></b></td>
+          </tr>
+          <tr>
+            <td><font face="Verdana,Arial"><br>
+              <font face="Verdana,Arial" size="-1">Changes:</font></font>
+              <ul>
+                <li><font face="Verdana,Arial" size="-1">Based on Inno Setup
+                  3.0.2-beta</font></li>
+                <li><font face="Verdana,Arial" size="-1">Based on Innerfuse Pascal Script 3 (ifps3 CVS module checked out on
+                  2002-06-01)<i><br>
+                  </i><br>
+                  </font></li>
+                <li><font face="Verdana,Arial" size="-1">Replaced installer and uninstaller icons by modern looking ones.
+                  Did not include any 48x48 or 24 bit icons (for XP) because of their
+                  size.</font>
+                </li>
+                <li><font face="Verdana,Arial" size="-1">Added
+                  [Code] section event function <tt>CheckSerial</tt> and
+                	constant {userinfoserial} for initial serial number support. If a <tt>CheckSerial</tt> event function
+                  is present in your [Code] section, a serial number field with
+                  automatically appear on the <i>User Info</i> wizard page
+                  (which must be enabled using <tt>UserInfoPage=yes</tt> in your [Setup]
+                  section!). Return True to accept the serial number and False
+                  to reject it. <tt>CheckSerial</tt> prototype:<tt><br>
+                  <br>
+                  function
+                  CheckSerial(Serial: String): Boolean;<br>
+                  <br>
+                  </tt></font>
+                </li>
+              </ul>
+              <p><font face="Verdana,Arial" size="-1">Changes inherited from Inno Setup 3.0.1-beta:</font></p>
+              <ul>
+                <li><font size="-1" face="Verdana,Arial"><a href="http://other.jrsoftware.org/is/is3dev-whatsnew.htm">Inno Setup 3.0 Revision History</a></font></li>
+              </ul>
+              <p><font face="Verdana,Arial" size="-1">Changes inherited from Innerfuse
+              Pascal Script 3:</font></p>
+              <ul>
+                <li><font size="-1" face="Verdana,Arial">Added support for record
+                  (struct) passing to and from .dlls. Limited to packed (non
+                  aligned) records and passing by reference (not really a
+                  limitation since this basically covers 99% of all cases).</font></li>
+                <li><font size="-1" face="Verdana,Arial">Added 'array constants'
+                  which for example makes this possible:<tt><br>
+                  <br>
+                  A := ['foo', 'bar'];<br>
+                  <br>
+                  </tt></font></li>
+                <li><font size="-1" face="Verdana,Arial">Added string indexing
+                  support which for example makes this possible:<tt><br>
+                  <br>
+                  S := 'foebar';<br>
+                  S[3] := 'o';<br>
+                  <br></tt>
+                  </font></li>
+                <li><font size="-1" face="Verdana,Arial">
+                  Various fixes.</font></li>
+              </ul>
+              <p>&nbsp;</td>
+          </tr>
+          <tr>
+            <td bgcolor="#0000FF"><b><font face="Verdana,Arial"><font color="#FFFFFF" size="5">My Inno Setup Extensions 3.0.1-beta </font><font color="#FFFFFF" size="-2">(2002-05-09)</font></font></b></td>
+          </tr>
+          <tr>
+            <td><font face="Verdana,Arial"><br>
+              <font face="Verdana,Arial" size="-1">Changes:</font></font>
+              <ul>
+                <li><font face="Verdana,Arial" size="-1">Based on Inno Setup 3.0.1-beta</font></li>
+                <li><font face="Verdana,Arial" size="-1">Based on Innerfuse Pascal Script 3 (ifps3 CVS module checked out on 2002-05-09)<i><br>
+                  </i><br>
+                  </font></li>
+                <li><font face="Verdana,Arial" size="-1">The [Code] section is now compiled by a 'real' compiler integrated into the My Inno Setup Extensions compiler IDE
+                  instead of being interpreted by Setup as in ISX 2. This is possible because of the great work Carlo Kok did on a new version of the scripting
+                  engine used by ISX: Innerfuse Pascal Script 3. See <a href="http://www.carlo-kok.com" target="_top">www.carlo-kok.com</a> for more information on IFPS3. Thanks Carlo!<br>
+                  <br>
+                  This means:</font>
+                  <ul>
+                    <li><font face="Verdana,Arial" size="-1">[Code] section errors such a syntax errors will pop up in the compiler IDE instead of in Setup at runtime.</font></li>
+                    <li><font face="Verdana,Arial" size="-1">The compiler IDE now checks the prototype of event functions, check functions and code constant functions for
+                      correctness and will pop up an error if something is wrong.</font></li>
+                    <li><font face="Verdana,Arial" size="-1">The compiler IDE</font><font face="Verdana,Arial" size="-1"> now checks the existance of check functions and code
+                      constant functions and will pop up an error if a function is missing.</font></li>
+                    <li><font face="Verdana,Arial" size="-1">A compiled Setup no longer contains the orginal [Code] section. Previously it did (although compressed into a non human
+                      readable form).<br>
+                      <br>
+                      </font></li>
+                  </ul>
+                </li>
+                <li><font face="Verdana,Arial" size="-1">The [Code] section debugger has been integrated into the compiler IDE and the new Inno Setup 3 'debugger'. Thanks to Jordan
+                  for his help on this.<br>
+                  <br>
+                  This means:</font>
+                  <ul>
+                    <li><font face="Verdana,Arial" size="-1">[Setup] section directive <tt>WizardDebug</tt> has been removed. You no longer need to recompile to turn debugging on
+                      or off. You can now use the same Setup for debugging and for distributing.</font></li>
+                    <li><font face="Verdana,Arial" size="-1">You can start 'Run to Cursor' debugging immediately from within the compiler IDE.</font></li>
+                    <li><font face="Verdana,Arial" size="-1">Since it's integrated into the new IS3 debugger, it shows the same 'green dots' to indicated processed lines, allows
+                      you to jump from [Code] section debugging to normal sections debugging seamlessly and offers new debugger features as 'Pause' and tooltip variable evaluation.<br>
+                      <br>
+                      </font></li>
+                  </ul>
+                </li>
+                <li><font face="Verdana,Arial" size="-1">Because of the above two changes, compiled Setups are now about <b>20 KB *smaller*</b> then they used to be.<br>
+                  <br>
+                  </font></li>
+                <li><font face="Verdana,Arial" size="-1"><tt>#include</tt> compiler directive support for the [Code] section. See below for more information on <tt>#include</tt>.</font></li>
+                <li><font face="Verdana,Arial" size="-1">The syntax-highlighting editor now highlights the names of [Code] section event functions.</font></li>
+                <li><font face="Verdana,Arial" size="-1">Both {app} and {group} are now available immediately after the user has clicked the Next button on the <i>Select
+                  Destination Directory</i> and <i>Select Start Menu Folder</i> wizard pages. Previously they were not available until the installation had started.</font></li>
+                <li><font face="Verdana,Arial" size="-1">Add [Code] section support function <tt>OutputMsgMemo</tt> to show a custom wizard page with a memo. Supports Rich Text. Prototype:<tt><br>
+                  <br>
+                  function OutputMsgMemo(const Prompt, Msg: String): Boolean;</tt><br>
+                  <br>
+                  </font></li>
+                <li><font face="Verdana,Arial" size="-1">Renamed [Code] section support function <tt>ChangeDirConst</tt> to <tt>ExpandConstant</tt>.</font></li>
+                <li><font face="Verdana,Arial" size="-1">Renamed [Code] section support function <tt>ChangeDirConstEx</tt> to <tt>ExpandConstantEx</tt>.</font></li>
+                <li><font face="Verdana,Arial" size="-1">Renamed [Code] section support function <tt>SelectDir</tt> to <tt>BrowseForFolder</tt>.</font></li>
+                <li><font face="Verdana,Arial" size="-1">Modified [Code] section event function <tt>UpdateReadyMemo</tt> prototype to:<tt><br>
+                  <br>
+                  function UpdateReadyMemo(Space, NewLine,
+                  MemoUserInfoInfo, MemoDirInfo, MemoTypeInfo, MemoComponentsInfo, MemoGroupInfo, MemoTasksInfo: String): String;<br>
+                  <br>
+                  </tt></font></li>
+                <li><font face="Verdana,Arial" size="-1">Removed [Code] section support functions <tt>UsingWindows4</tt> and <tt>UsingNewGUI</tt>.</font></li>
+                <li><font face="Verdana,Arial" size="-1">Removed [Setup] section directive <tt>CodeFile</tt>. Use the new <tt>#include</tt> compiler directive instead.</font></li>
+                <li><font face="Verdana,Arial" size="-1">In a code constant such as <tt>{code:FunctionName|DefaultValue}</tt>, <tt>FunctionName</tt> may no longer include
+                  constants.<br>
+                  </font></li>
+                <li><font face="Verdana,Arial" size="-1">The syntax of the <tt>extern</tt> keyword for DLL usage has been modified. See the <tt>ScriptDll.iss</tt> example file.</font></li>
+                <li><font face="Verdana,Arial" size="-1">Minor tweaks and fixes.</font></li>
+              </ul>
+              <p><font face="Verdana,Arial" size="-1">Changes inherited from Inno Setup 3.0.1-beta:</font></p>
+              <ul>
+                <li><font size="-1" face="Verdana,Arial"><a href="http://other.jrsoftware.org/is/is3dev-whatsnew.htm">Inno Setup 3.0 Revision History</a></font></li>
+              </ul>
+              <p>&nbsp;</td>
+          </tr>
+          <tr>
+            <td bgcolor="#0000FF"><b><font face="Verdana,Arial"><font color="#FFFFFF" size="5">My Inno Setup Extensions 2.0.18 </font><font color="#FFFFFF" size="-2">(2001-12-30)</font></font></b></td>
+          </tr>
+          <tr>
+            <td><font face="Verdana,Arial"><br>
+              <font face="Verdana,Arial" size="-1">Changes:</font></font>
+              <ul>
+                <li><font size="-1" face="Verdana,Arial"><a href="http://www.wintax.nl/isx/2.0.18/whatsnew.htm">My Inno Setup Extensions 2.0 history</a></font></li>
+              </ul>
+              <p>&nbsp;</td>
+          </tr>
+        </table>
+        </center>
+      </div>
+    </td>
+  <tr>
+    <td bgcolor="#0000FF">&nbsp;</td>
+  </tr>
+</table>
+<p align="center"><font face="Verdana,Arial"><font size="1">Martijn Laan, The Netherlands</font></font></p>
+<font face="Verdana,Arial">
+
+<!--STATS4ALL_START-->
+<script language="javascript"><!--
+sver = 10;screensize="";colors="";navlan="";plug="";
+ref = escape(document.referrer)+"";
+sUrl = escape(document.URL)+"";
+if((ref=="") || (ref=="undefined")){ref="bookmark";};
+nav=navigator.appName;
+if(nav.substring(0,9)=="Microsoft"){nav="MSIE";};
+version=Math.round(parseFloat(navigator.appVersion)*100);
+if((nav=="MSIE") && (parseInt(version)==2)){version=301;};java="";
+if(navigator.appName=="Netscape"){ if(version>400) navlan=navigator.language;
+if(version>300)for(var i=0;i<navigator.plugins.length;i++)plug +=navigator.plugins[i].name+":"};
+//--></script>
+<script language="javascript1.1"><!--
+sver=11;java=(navigator.javaEnabled()==true)?"y":"n";
+//--></script>
+<script language="javascript1.2"><!--
+sver=12;screensize=screen.width+"*"+screen.height;
+colors=(nav=="MSIE")?screen.colorDepth:screen.pixelDepth;
+if(colors=="undefined"){colors="";};
+//--></script>
+<script language="javascript1.3"><!--
+sver=13;
+//--></script>
+<script language="javascript"><!--
+arguments="&nav="+nav+"&version="+version+"&screensize="+screensize+"&colors="+colors+"&sver="+sver;
+arguments+="&java="+java+"&rf="+ref+"&navlan="+navlan+"&plug="+escape(plug)+"&sUrl="+sUrl;
+document.write ("<IMG BORDER=0 SRC='http://www.hit.stats4all.com/asp/hit.asp?sSiteName=ISX" + arguments + "&sExtra=None'>")
+//--></script>
+<script language="javascript1.2"><!--
+document.write("<");document.write("!--");
+//--></script>
+<noscript>
+<img border="0" src="http://www.hit.stats4all.com/asp/hit.asp?sSiteName=ISX">
+</noscript>
+<script language="javascript1.2"><!--
+document.write("--");document.write(">");
+//--></script>
+<!--STATS4ALL_END-->
+
+</font>
+
+</body>

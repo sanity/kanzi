@@ -1,0 +1,69 @@
+<project name="MSMD" default="plaindist" basedir=".">
+  <!-- set global properties for this build -->
+  <property name="src" location="src"/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+  <property name="lib"  location="lib"/>
+  <property name="win"  location="win"/>
+  <taskdef name="jarg" classname="jarg.JargTask" classpath="${lib}/jarg.jar"/>
+  <target name="init">
+    <!-- Create the time stamp -->
+    <tstamp/>
+    <!-- Create the build directory structure used by compile -->
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init"
+        description="compile the source " >
+    <!-- Compile the java code from ${src} into ${build} -->
+    <javac classpath="${lib}/Tidy.jar:${lib}/xerces.jar:${lib}/kunststoff.jar"
+           srcdir="${src}"
+           destdir="${build}" debug="on"/>
+  </target>
+
+  <target name="plaindist" depends="compile"
+        description="generate the distribution" >
+    <!-- Put everything in ${build} into the msmd.jar file -->
+    <jar jarfile="msmd.jar" basedir="${build}"
+         manifest="src/msmd/manifest.mf" />
+  </target>
+
+  <target name="obdist" depends="plaindist">
+    <jarg jarfile="msmd.jar" verbose="true"
+          nobco="true" rnlog="rnlog.txt" />
+  </target>
+
+  <target name="dist" depends="obdist">
+    <!-- Create the distribution directory -->
+    <mkdir dir="${dist}/lib"/>
+    <copy file="msmd.jar" todir="${dist}" />
+    <!-- Copy required libraries to lib dir -->
+    <copy file="${lib}/Tidy.jar" todir="${dist}/lib" />
+    <copy file="${lib}/xerces.jar" todir="${dist}/lib" />
+    <copy file="${lib}/kunststoff.jar" todir="${dist}/lib" />
+     <signjar alias="cematics" keystore="keystore" storepass="temporary">
+        <fileset dir="${dist}">
+           <include name="msmd.jar" />
+           <include name="lib/*.jar" />
+        </fileset>
+     </signjar>
+  </target>
+
+<!-- Requires "inno" directory and wine - get inno from:
+     http://www.cematics.com/msmd/inno.tgz
+-->
+
+  <target name="windist" depends="dist">
+    <exec dir="${win}" executable="wine" output="inno.out">
+       <arg line="../inno/ISCC.exe MSMD.iss" />
+    </exec>
+  </target>
+
+  <target name="deploy" depends="windist">
+    <exec dir="${win}/Output" executable="scp">
+       <arg line="setup.exe scgmille@diviy.pair.com:public_html/cematics/kanzi/beta9a7lkj2/kanzi-installer.exe" />
+    </exec>
+  </target>
+
+</project>
+

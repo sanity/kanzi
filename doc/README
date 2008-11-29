@@ -1,0 +1,11 @@
+Kanzi Release Candidate 2
+-------------------------
+
+This file contains information specific to this version of Kanzi.
+
+Known Bugs
+----------
+
+- Kanzi operates very slowly on files that are mounted remotely 
+  (using Windows File Sharing, for example).
+

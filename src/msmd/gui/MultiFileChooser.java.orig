@@ -1,0 +1,223 @@
+ package msmd.gui;
+
+import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.io.File;
+import java.util.*;
+import msmd.*;
+import org.w3c.dom.*;
+
+public class MultiFileChooser extends WizardPage implements ActionListener,
+                                                            ListSelectionListener, 
+                                                            ChangeListener {
+    
+    protected JList files;
+    protected JButton addFile, addDir, remove;
+    protected Wizard w;
+    protected DefaultListModel lm;
+    protected JCheckBox filter;
+    protected JSlider slider;
+    protected JLabel msim, lsim;
+
+    MultiFileChooser(Wizard w) {
+        this.w=w;
+        lm=new DefaultListModel();
+        files=new JList(lm);
+        JScrollPane sp=new JScrollPane(files, 
+                                       JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+                                       JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        setLayout(new BorderLayout());
+        JPanel mpan=new JPanel();        
+        mpan.setLayout(new BorderLayout());
+        mpan.add(sp, BorderLayout.CENTER);
+        JPanel pan=new JPanel();
+        pan.setLayout(new BoxLayout(pan, BoxLayout.Y_AXIS));
+        pan.setAlignmentX(pan.RIGHT_ALIGNMENT);
+        pan.add(addFile=new JButton("Add File(s)"));
+        pan.add(addDir=new JButton("Add a Directory"));
+        pan.add(remove=new JButton("Remove"));
+        pan.add(filter=new JCheckBox("Similarity Filter"));
+        pan.add(msim=new JLabel("More Similar"));
+        pan.add(slider=new JSlider(JSlider.VERTICAL, 0, 100, 50));
+        pan.add(lsim=new JLabel("Less Similar"));
+        filter.setSelected(false);
+        slider.setEnabled(false);
+        slider.setInverted(false);
+        mpan.add(pan, BorderLayout.EAST);
+        filter.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    slider.setEnabled(filter.isSelected());
+                    lsim.setEnabled(filter.isSelected());
+                    msim.setEnabled(filter.isSelected());
+                    if (filter.isSelected())
+                        try {
+                            filterUpdate(slider.getValue()/100.0f);
+                        } catch (IOException ie) {
+                            ie.printStackTrace();
+                        }
+                }
+            });
+        slider.addChangeListener(this);
+        addFile.addActionListener(this);
+        addDir.addActionListener(this);
+        remove.addActionListener(this);
+        addFile.setActionCommand("add-file");
+        addDir.setActionCommand("add-dir");
+        remove.setActionCommand("remove");
+        remove.setEnabled(false);
+        mpan.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.black), "Select mimic target files"));
+
+        files.addListSelectionListener(this);
+        add(mpan, BorderLayout.CENTER);
+    }
+
+    public String getTitle() {
+        return "Step 2:  Select Victims";
+    }
+
+    public boolean nextAllowed() {
+        return lm.getSize()>0;
+    }
+
+    public void stateChanged(ChangeEvent e) {
+        int thresh= (int)slider.getValue();
+        try {
+            filterUpdate(thresh/100.0f);
+        } catch (IOException ie) {
+            ie.printStackTrace();
+        }
+    }
+                
+
+    public void valueChanged(ListSelectionEvent e) {
+        remove.setEnabled(!files.isSelectionEmpty());
+    }
+
+    public Dimension getPreferredSize() {
+        return new Dimension(300,150);
+    }
+
+    public void left() {
+        LinkedList ll=new LinkedList();
+        int[] idcs=files.getSelectedIndices();
+        for (int i=0; i<idcs.length; i++) {
+            try {
+                ll.add(DraftFile.draftTo((File)lm.getElementAt(i)));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        w.properties.put("targets", ll);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("add-file")) {
+            JFileChooser chooser = new JFileChooser();
+            // Note: source for ExampleFileFilter can be found in FileChooserDemo,
+            // under the demo/jfc directory in the Java 2 SDK, Standard Edition.
+            ExampleFileFilter efilter = new ExampleFileFilter();
+            efilter.addExtension("html");
+            efilter.addExtension("htm");
+            efilter.setDescription("HTML Documents");
+            chooser.setFileFilter(efilter);
+            chooser.setMultiSelectionEnabled(true);
+            int returnVal = chooser.showOpenDialog(this);
+            if(returnVal == JFileChooser.APPROVE_OPTION) {
+                File[] sfiles=chooser.getSelectedFiles();
+                for (int i=0; i<sfiles.length; i++) {
+                    lm.addElement(sfiles[i]);
+                    files.setSelectedIndex(lm.indexOf(sfiles[i]));
+                }
+            }
+            if (filter.isSelected())
+                try {
+                    filterUpdate(slider.getValue()/100.0f);
+                } catch (IOException ie) {
+                    ie.printStackTrace();
+                }
+        } else if (e.getActionCommand().equals("remove")) {
+            int[] ixs=files.getSelectedIndices();
+            for (int i=0; i<ixs.length; i++) {
+                pageScores.remove(lm.getElementAt(i));
+                lm.remove(ixs[i]);
+            }
+            files.clearSelection();
+        }
+        w.refresh();
+    }
+
+    //Code for automatic filtering
+    protected HashMap pageScores=new HashMap();
+    protected Matcher m=new Matcher();
+
+
+    static Node findBODY(Node d) {
+        int i=0;
+        for (NodeList l=d.getChildNodes(); i<l.getLength(); i++) {
+            if (l.item(i).getNodeName().equalsIgnoreCase("HTML"))
+                return findBODY(l.item(i));
+            if (l.item(i).getNodeName().equalsIgnoreCase("BODY"))
+                return l.item(i);
+        }
+        return null;
+    }
+
+    float calcScore(File f, Document d) throws IOException {
+        Document t=HTMLReader.readPage(f);
+        Node n1=findBODY(t);
+        Node n2=findBODY(d);
+        if (n1==null) n1=t;
+        if (n2==null) n2=d;
+        m.parentWeight=0.0f;
+        m.childrenWeight=0.5f;
+        m.doMatch(t, n2);
+        return m.compare(n1, n2, 10);
+    }
+
+    void filterUpdate(float thresh) throws IOException {
+        System.err.println("Updating threshold: "+thresh);
+        w.status.setText("Please wait...");
+        Vector selection=new Vector();
+        float min=Float.MAX_VALUE, max=Float.MIN_VALUE;
+        for (int i=0; i<lm.getSize(); i++) {
+            Object s=lm.getElementAt(i);
+            Float score=(Float)pageScores.get(s);
+            if (score==null) {
+                System.err.println("Fetching score for "+s+"...");
+                while (w.properties.get("orig-dom")==null) {
+                    synchronized(w.properties) {
+                        try {
+                            w.properties.wait(200);
+                        } catch (InterruptedException ie) {}
+                    }
+                }
+                pageScores.put(s, score=new Float(calcScore((File)s, (Document)w.properties.get("orig-dom"))));;
+                System.err.println("Score is "+score+".");
+                
+            }
+            if (score.floatValue()<min)
+                min=score.floatValue();
+            if (score.floatValue()>max)
+                max=score.floatValue();
+        }
+
+        thresh=(thresh*((max-min)+0.005f))+min-0.001f;
+
+        for (int i=0; i<lm.getSize(); i++) {
+            Object s=lm.getElementAt(i);
+            Float score=(Float)pageScores.get(s);
+            if (score.floatValue()>thresh) 
+                selection.add(new Integer(i));
+        }
+        files.clearSelection();
+        int idcs[]=new int[selection.size()];
+        for (int i=0; i<idcs.length; i++)
+            idcs[i]=((Integer)selection.elementAt(i)).intValue();
+        files.setSelectedIndices(idcs);
+        w.status.setText("");
+    }
+}
+            

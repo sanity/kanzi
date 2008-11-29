@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp
+  spec="1.0+"
+  codebase="http://www.cematics.com/msmd"
+  href="msmd.jnlp">
+  <information>
+    <title>Monkey See, Monkey Do</title>
+    <vendor>Cematics LLC</vendor>
+    <homepage href="msmd.html"/>
+    <description>An intelligent HTML editing tool</description>
+    <icon href="msmd.png"/>
+    <icon kind="splash" href="splash.png"/>
+    <offline-allowed/>
+    </information>
+    <security>
+      <all-permissions/>
+    </security>
+    <resources>
+      <j2se version="1.4+"/>
+      <jar href="msmd.jar"/>
+      <jar href="lib/Tidy.jar"/>
+    </resources>
+    <application-desc  />
+</jnlp>
+

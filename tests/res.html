@@ -1,0 +1,1566 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html score="0.47500002">
+  <head score="0.46249998">
+    <meta name="generator" content="HTML Tidy, see www.w3.org"
+    score="0.51512563">
+    <meta http-equiv="Content-Type" content=
+    "text/html; charset=iso-8859-1" score="0.51884264">
+    <meta name="GENERATOR" content=
+    "Mozilla/4.76 [en] (X11; U; Linux 2.4.0 i686) [Netscape]"
+    score="0.51485294">
+    <title score="0.51894534">
+      Second Interpreter of Scheme Code (SISC)
+    </title>
+  </head>
+  <body text="#cccccc" bgcolor="#4656ba" link="#ccffff" vlink=
+  "#999999" alink="#ff0000" score="0.4282715">
+    &nbsp; 
+    <center score="0.48693848">
+      <table width="100%" nosave="" cellspacing="0" cellpadding="2"
+      score="0.49005127">
+        <tbody score="0.52934575">
+          <tr nosave="" score="0.49389398">
+            <td align="left" valign="top" nosave="" score=
+            "0.44652483">
+              <h1>
+                Java Scheme Comparison
+              </h1>
+              <font size="+1" score="0.49614644">Matthias Radestock
+              &lt;matthias at sorted.org&gt;<br>
+               Scott G. Miller &lt;scgmille at
+              freenetproject.org&gt;<br score="0.44690397">
+              </font> <br>
+               Below we perform a comparison of the most well known
+              Scheme implementations in Java. &nbsp;The feature set
+              is be compared to the best of our knowledge and the
+              Gabriel Scheme Benchmarks are used to compare
+              performance between the systems.<br>
+               <br>
+               
+              <h2 score="0.5906952">
+                Feature Matrix
+              </h2>
+              The following matrix compares features that may be
+              relevant to performance in a given Scheme system:<br
+              score="0.5406952">
+               
+            </td>
+            <td align="right" valign="top" nosave="" width="180"
+            score="0.50275654">
+              <table border="0" cellpadding="1" score="0.62387395">
+                <tbody score="0.52854">
+                  <tr score="0.5433105">
+                    <td bgcolor="#000cc0" align="right" score=
+                    "0.5922241">
+                      <table cellpadding="2" cellspacing="2"
+                      border="0" width="100%" bgcolor="#7eb6d3"
+                      score="0.58500063">
+                        <tbody score="0.4470581">
+                          <tr>
+                            <td valign="top" bgcolor="#000000"
+                            score="0.5096697">
+                              Links<br score="0.5921387">
+                               
+                            </td>
+                          </tr>
+                          <tr>
+                            <td valign="top" score="0.4674822">
+                              <a href="../">SISC</a> <font color=
+                              "#000066" score="0.6653932">Main
+                              Page</font><br score="0.67885745">
+                               
+                            </td>
+                          </tr>
+                          <tr score="0.50727546">
+                            <td valign="top" score="0.53779477">
+                              <div align="right" score="0.78551024"
+                              best="0.78551024">
+                                <a href="http://sourceforge.net"
+                                score="0.4980755"><img src=
+                                "http://sourceforge.net/sflogo.php?group_id=23735"
+                                 width="88" height="31" border="0"
+                                alt="SourceForge Logo" score=
+                                "0.4568934"></a><br score=
+                                "0.48758546">
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </center>
+    <div align="left" score="0.56832886">
+      <table cellpadding="2" cellspacing="2" border="0" width=
+      "100%" score="0.48160097">
+        <tbody score="0.51059574">
+          <tr score="0.54399073">
+            <td valign="top" score="0.47041878">
+              <blockquote>
+                <table cellpadding="2" cellspacing="2" border="1"
+                score="0.50396734">
+                  <tbody score="0.43920898">
+                    <tr>
+                      <td valign="top">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <i><b>SISC</b></i><br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <i><b>Kawa</b></i><br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <i><b>JScheme</b></i><br>
+                         
+                      </td>
+                      <td valign="top">
+                        <i><b>Bigloo<sup>6</sup></b></i><br>
+                         
+                      </td>
+                      <td valign="top">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <i><b>SISC</b></i><br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <i><b>Kawa</b></i><br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <i score="0.6175171"><b score=
+                        "0.5393067">JScheme</b></i><br>
+                         
+                      </td>
+                      <td valign="top">
+                        <i><b score="0.49555668">Bigloo<sup score=
+                        "0.5348267">6</sup></b></i><br>
+                         
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="top">
+                        R<sup>5</sup>RS<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<sup>2</sup><br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<sup>5</sup><br>
+                         
+                      </td>
+                      <td valign="top">
+                        <b score="0.70501715">Number Tower</b><br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        ---<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        ---<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        ---<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        ---<br>
+                         
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="top" score="0.42971805">
+                        R<sup score="0.6979859">4</sup>RS<br score=
+                        "0.6479858">
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<sup>3</sup><br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top">
+                        Fixed Integers<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="top">
+                        Proper Tail Recursion<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<sup>1</sup><br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<sup>5</sup><br>
+                         
+                      </td>
+                      <td valign="top">
+                        Arbitrary Precision Integers<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="top">
+                        Escaping Continuations<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top">
+                        Float Precision<br>
+                         
+                      </td>
+                      <td valign="top" align="center" score=
+                      "0.467218">
+                        Unlimited<sup score="0.6128296">4</sup><br
+                        score="0.5628296">
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        ?<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        64bit<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        64bit<br>
+                         
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="top">
+                        One-shot Continuations<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top">
+                        Ratios<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="top">
+                        Multi-shot Continuations<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top">
+                        Complex Numbers<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                    </tr>
+                    <tr score="0.40021363">
+                      <td valign="top" score="0.44378048">
+                        Compiling Support<br score="0.6550171">
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        X<br>
+                         
+                      </td>
+                      <td valign="top" align="center" score=
+                      "0.476593">
+                        X<br score="0.56751704">
+                         
+                      </td>
+                      <td valign="top" score="0.46253055">
+                        <br score="0.6643921">
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center">
+                        <br>
+                         
+                      </td>
+                      <td valign="top" align="center" score=
+                      "0.49534306">
+                        <br score="0.57689214">
+                         
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <ol score="0.41674805">
+                  <li>
+                    Not enabled by default
+                  </li>
+                  <li>
+                    With <a href=
+                    "http://www.gnu.org/software/kawa/Restrictions.html"
+                     score="0.51946294">restrictions</a>
+                  </li>
+                  <li>
+                    With escaping continuations only, and only
+                    immutable strings.
+                  </li>
+                  <li>
+                    <i score="0.5222839">SISC</i> provides three
+                    numeric libraries, one of which uses unlimited
+                    precision floating point math, one of which
+                    supports 64 and another 32 bit floating point.
+                  </li>
+                  <li score="0.5236328">
+                    Bigloo claims to be almost R5RS compliant, with
+                    the exception of proper tail recursion, not
+                    present with the JVM backend.
+                  </li>
+                  <li score="0.47363278">
+                    Targetting the JVM backend.<br score=
+                    "0.47228393">
+                  </li>
+                </ol>
+              </blockquote>
+              <h2>
+                Gabriel Benchmark Results
+              </h2>
+              <blockquote score="0.6135865">
+                The following benchmarks were performed on an
+                unloaded 700mhz Pentium III. &nbsp;The operating
+                system was RedHat Linux 6.2, and the virtual
+                machine was Sun's JDK v1.4. &nbsp;Debugging was off
+                and optimization was on for the compiles. The times
+                are recorded from the start of the benchmark
+                (calling the benchmark's entry point) to the point
+                a value is returned. In particular, time to load
+                and compile the benchmark is <i>not</i>
+                included.<br>
+                <br>
+                 <i>SISC</i> was compiled using the 64 bit floating
+                point numeric library. Also, while <i>SISC</i>
+                supports dynamic-wind, the support code is not
+                loaded unless a program uses dynamic-wind. This has
+                a marginal effect on the performance of
+                call/cc.<br>
+                <br>
+                 The systems tested were:<br>
+                 
+                <ul score="0.40112305">
+                  <li>
+                    JScheme 4.3.2
+                  </li>
+                  <li>
+                    Kawa 1.6.98
+                  </li>
+                  <li score="0.5158204">
+                    Bigloo 2.5a (targetting the JVM)
+                  </li>
+                  <li score="0.4658203">
+                    SISC 1.4.0<br score="0.47453004">
+                  </li>
+                </ul>
+                <i><b>(I</b></i><b>)</b> indicates the Scheme
+                System is operating as an Interpreter. &nbsp;In
+                Kawa's case, most code is actually compiled
+                on-the-fly, so Interpreter may not be a completely
+                accurate word.<br>
+                 <i><b>(C)</b></i> indicates the Scheme System is
+                operating as a Compiler.<br>
+                 <i><b score="0.55957025">(TC)</b></i> indicates
+                that support for proper tail recursion (Tail Calls)
+                was enabled.<br>
+                 <b>(std)</b> Bigloo was run with hygienic macro
+                support, bytecode purification, and call/cc
+                support.<br>
+                 <b>(opt)</b> Bigloo was run with none of the std
+                options, and with <tt>-Obench</tt><br>
+                <br>
+                 
+                <h3>
+                  Benchmark times
+                </h3>
+                <table border="1">
+                  <tbody>
+                    <tr score="0.40910342">
+                      <th align="center">
+                        Benchmark
+                      </th>
+                      <th align="center">
+                        SISC
+                      </th>
+                      <th align="center">
+                        JScheme (I)
+                      </th>
+                      <th align="center">
+                        JScheme (C)
+                      </th>
+                      <th align="center">
+                        Kawa (I)
+                      </th>
+                      <th align="center">
+                        Kawa (C)
+                      </th>
+                      <th align="center">
+                        Kawa (I/TC)
+                      </th>
+                      <th align="center">
+                        Kawa (C/TC)
+                      </th>
+                      <th align="center">
+                        Bigloo (std)
+                      </th>
+                      <th align="center" score="0.501057">
+                        Bigloo (opt)
+                      </th>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        cpstak
+                      </td>
+                      <td align="right">
+                        318
+                      </td>
+                      <td align="right">
+                        1017
+                      </td>
+                      <td align="right">
+                        767
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966">Failed</font>&nbsp;
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966">Failed</font>&nbsp;
+                      </td>
+                      <td align="right">
+                        435
+                      </td>
+                      <td align="right">
+                        160
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966">Failed</font>&nbsp;
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966">Failed</font>&nbsp;
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        ctak
+                      </td>
+                      <td align="right">
+                        653
+                      </td>
+                      <td align="right">
+                        21484
+                      </td>
+                      <td align="right">
+                        12508
+                      </td>
+                      <td align="right">
+                        10254
+                      </td>
+                      <td align="right">
+                        9380
+                      </td>
+                      <td align="right">
+                        18221
+                      </td>
+                      <td align="right">
+                        17631
+                      </td>
+                      <td align="right">
+                        10765
+                      </td>
+                      <td align="right">
+                        10095
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        dderiv
+                      </td>
+                      <td align="right">
+                        1325
+                      </td>
+                      <td align="right">
+                        1818
+                      </td>
+                      <td align="right">
+                        986
+                      </td>
+                      <td align="right">
+                        346
+                      </td>
+                      <td align="right">
+                        211
+                      </td>
+                      <td align="right">
+                        872
+                      </td>
+                      <td align="right">
+                        584
+                      </td>
+                      <td align="right">
+                        197
+                      </td>
+                      <td align="right">
+                        36
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        deriv
+                      </td>
+                      <td align="right">
+                        1248
+                      </td>
+                      <td align="right">
+                        1163
+                      </td>
+                      <td align="right">
+                        547
+                      </td>
+                      <td align="right">
+                        307
+                      </td>
+                      <td align="right">
+                        160
+                      </td>
+                      <td align="right">
+                        764
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966">Failed</font>
+                      </td>
+                      <td align="right">
+                        181
+                      </td>
+                      <td align="right">
+                        32
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        destruct
+                      </td>
+                      <td align="right">
+                        1409
+                      </td>
+                      <td align="right">
+                        3397
+                      </td>
+                      <td align="right">
+                        4304
+                      </td>
+                      <td align="right">
+                        1086
+                      </td>
+                      <td align="right">
+                        263
+                      </td>
+                      <td align="right">
+                        1109
+                      </td>
+                      <td align="right">
+                        277
+                      </td>
+                      <td align="right">
+                        551
+                      </td>
+                      <td align="right">
+                        127
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        div-iter
+                      </td>
+                      <td align="right">
+                        532
+                      </td>
+                      <td align="right">
+                        1411
+                      </td>
+                      <td align="right">
+                        1448
+                      </td>
+                      <td align="right">
+                        84
+                      </td>
+                      <td align="right">
+                        37
+                      </td>
+                      <td align="right">
+                        89
+                      </td>
+                      <td align="right">
+                        40
+                      </td>
+                      <td align="right">
+                        48
+                      </td>
+                      <td align="right">
+                        14
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        div-rec
+                      </td>
+                      <td align="right">
+                        533
+                      </td>
+                      <td align="right">
+                        1304
+                      </td>
+                      <td align="right">
+                        636
+                      </td>
+                      <td align="right">
+                        86
+                      </td>
+                      <td align="right">
+                        41
+                      </td>
+                      <td align="right">
+                        406
+                      </td>
+                      <td align="right">
+                        205
+                      </td>
+                      <td align="right">
+                        34
+                      </td>
+                      <td align="right">
+                        14
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        fft
+                      </td>
+                      <td align="right">
+                        319
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966" score=
+                        "0.60010684">Failed</font>
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966">Failed</font>&nbsp;
+                      </td>
+                      <td align="right">
+                        308
+                      </td>
+                      <td align="right">
+                        75
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966">Failed</font>&nbsp;
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966">Failed</font>&nbsp;
+                      </td>
+                      <td align="right">
+                        140
+                      </td>
+                      <td align="right">
+                        13
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        fread
+                      </td>
+                      <td align="right">
+                        68
+                      </td>
+                      <td align="right">
+                        16
+                      </td>
+                      <td align="right">
+                        154
+                      </td>
+                      <td align="right">
+                        33
+                      </td>
+                      <td align="right">
+                        35
+                      </td>
+                      <td align="right">
+                        34
+                      </td>
+                      <td align="right">
+                        37
+                      </td>
+                      <td align="right">
+                        78
+                      </td>
+                      <td align="right">
+                        20
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        fprint
+                      </td>
+                      <td align="right">
+                        8
+                      </td>
+                      <td align="right">
+                        5
+                      </td>
+                      <td align="right">
+                        5
+                      </td>
+                      <td align="right">
+                        21
+                      </td>
+                      <td align="right">
+                        16
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966">Failed</font>&nbsp;
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966">Failed</font>&nbsp;
+                      </td>
+                      <td align="right">
+                        51
+                      </td>
+                      <td align="right">
+                        49
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        puzzle
+                      </td>
+                      <td align="right">
+                        79
+                      </td>
+                      <td align="right">
+                        164
+                      </td>
+                      <td align="right">
+                        224
+                      </td>
+                      <td align="right">
+                        69
+                      </td>
+                      <td align="right">
+                        10
+                      </td>
+                      <td align="right">
+                        <font color="#ff9966">Failed</font>&nbsp;
+                      </td>
+                      <td align="right" score="0.53907406">
+                        <font color="#ff9966" score=
+                        "0.5860443">Failed</font>&nbsp;
+                      </td>
+                      <td align="right">
+                        46
+                      </td>
+                      <td align="right">
+                        4
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        tak
+                      </td>
+                      <td align="right">
+                        306
+                      </td>
+                      <td align="right">
+                        694
+                      </td>
+                      <td align="right">
+                        234
+                      </td>
+                      <td align="right">
+                        132
+                      </td>
+                      <td align="right">
+                        15
+                      </td>
+                      <td align="right">
+                        295
+                      </td>
+                      <td align="right">
+                        65
+                      </td>
+                      <td align="right">
+                        59
+                      </td>
+                      <td align="right">
+                        2
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        takl
+                      </td>
+                      <td align="right">
+                        2976
+                      </td>
+                      <td align="right">
+                        6306
+                      </td>
+                      <td align="right">
+                        1745
+                      </td>
+                      <td align="right">
+                        631
+                      </td>
+                      <td align="right">
+                        33
+                      </td>
+                      <td align="right">
+                        2192
+                      </td>
+                      <td align="right">
+                        339
+                      </td>
+                      <td align="right">
+                        38
+                      </td>
+                      <td align="right">
+                        9
+                      </td>
+                    </tr>
+                    <tr valign="top" score="0.43495256">
+                      <td align="left" score="0.56719905">
+                        takr
+                      </td>
+                      <td align="right">
+                        351
+                      </td>
+                      <td align="right">
+                        701
+                      </td>
+                      <td align="right">
+                        764
+                      </td>
+                      <td align="right">
+                        369
+                      </td>
+                      <td align="right">
+                        46
+                      </td>
+                      <td align="right">
+                        728
+                      </td>
+                      <td align="right">
+                        218
+                      </td>
+                      <td align="right">
+                        101
+                      </td>
+                      <td align="right" score="0.576574">
+                        14
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <h3>
+                  Relative performance
+                </h3>
+                This table indicates the relative performance
+                between systems, with positive values showing SISC
+                is <i score="0.48862305">n</i> percent faster on
+                that benchmark. 
+                <table border="1" score="0.48521733">
+                  <tbody score="0.45718384">
+                    <tr score="0.40929872">
+                      <th align="center">
+                        Benchmark
+                      </th>
+                      <th align="center">
+                        JScheme (I)
+                      </th>
+                      <th align="center">
+                        JScheme (C)
+                      </th>
+                      <th align="center">
+                        Kawa (I)
+                      </th>
+                      <th align="center">
+                        Kawa (C)
+                      </th>
+                      <th align="center">
+                        Kawa (I/TC)
+                      </th>
+                      <th align="center">
+                        Kawa (C/TC)
+                      </th>
+                      <th align="center">
+                        Bigloo (std)
+                      </th>
+                      <th align="center" score="0.50113034">
+                        Bigloo (opt)
+                      </th>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        cpstak
+                      </td>
+                      <td align="right">
+                        219.8
+                      </td>
+                      <td align="right">
+                        141.2
+                      </td>
+                      <td align="right">
+                        &nbsp;<font color="#ff9966">Failed</font>
+                      </td>
+                      <td align="right">
+                        &nbsp;<font color="#ff9966">Failed</font>
+                      </td>
+                      <td align="right">
+                        36.8
+                      </td>
+                      <td align="right">
+                        -98.8
+                      </td>
+                      <td align="right">
+                        &nbsp;<font color="#ff9966">Failed</font>
+                      </td>
+                      <td align="right">
+                        &nbsp;<font color="#ff9966">Failed</font>
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        ctak
+                      </td>
+                      <td align="right">
+                        3190.0
+                      </td>
+                      <td align="right">
+                        1815.5
+                      </td>
+                      <td align="right">
+                        1470.3
+                      </td>
+                      <td align="right">
+                        1336.4
+                      </td>
+                      <td align="right">
+                        2690.4
+                      </td>
+                      <td align="right">
+                        2600.0
+                      </td>
+                      <td align="right">
+                        1548.5
+                      </td>
+                      <td align="right">
+                        1445.9
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        dderiv
+                      </td>
+                      <td align="right">
+                        37.2
+                      </td>
+                      <td align="right">
+                        -34.4
+                      </td>
+                      <td align="right">
+                        -282.9
+                      </td>
+                      <td align="right">
+                        -528.0
+                      </td>
+                      <td align="right">
+                        -51.9
+                      </td>
+                      <td align="right">
+                        -126.9
+                      </td>
+                      <td align="right">
+                        -572.6
+                      </td>
+                      <td align="right">
+                        -3580.6
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        deriv
+                      </td>
+                      <td align="right">
+                        -7.3
+                      </td>
+                      <td align="right">
+                        -128.2
+                      </td>
+                      <td align="right">
+                        -306.5
+                      </td>
+                      <td align="right">
+                        -680.0
+                      </td>
+                      <td align="right">
+                        -63.4
+                      </td>
+                      <td align="right">
+                        &nbsp;
+                      </td>
+                      <td align="right">
+                        -589.5
+                      </td>
+                      <td align="right">
+                        -3800.0
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        destruct
+                      </td>
+                      <td align="right">
+                        141.1
+                      </td>
+                      <td align="right">
+                        205.5
+                      </td>
+                      <td align="right">
+                        -29.7
+                      </td>
+                      <td align="right">
+                        -435.7
+                      </td>
+                      <td align="right">
+                        -27.1
+                      </td>
+                      <td align="right">
+                        -408.7
+                      </td>
+                      <td align="right">
+                        -155.7
+                      </td>
+                      <td align="right">
+                        -1009.4
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        div-iter
+                      </td>
+                      <td align="right">
+                        165.2
+                      </td>
+                      <td align="right">
+                        172.2
+                      </td>
+                      <td align="right">
+                        -533.3
+                      </td>
+                      <td align="right">
+                        -1337.8
+                      </td>
+                      <td align="right">
+                        -497.8
+                      </td>
+                      <td align="right">
+                        -1230.0
+                      </td>
+                      <td align="right">
+                        -1008.3
+                      </td>
+                      <td align="right">
+                        -3700.0
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        div-rec
+                      </td>
+                      <td align="right">
+                        144.7
+                      </td>
+                      <td align="right">
+                        19.3
+                      </td>
+                      <td align="right">
+                        -519.8
+                      </td>
+                      <td align="right">
+                        -1200.0
+                      </td>
+                      <td align="right">
+                        -31.3
+                      </td>
+                      <td align="right">
+                        -160.0
+                      </td>
+                      <td align="right">
+                        -1467.6
+                      </td>
+                      <td align="right">
+                        -3707.1
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        fft
+                      </td>
+                      <td align="right">
+                        &nbsp;<font color="#ff9966">Failed</font>
+                      </td>
+                      <td align="right">
+                        &nbsp;<font color="#ff9966">Failed</font>
+                      </td>
+                      <td align="right">
+                        -3.6
+                      </td>
+                      <td align="right">
+                        -325.3
+                      </td>
+                      <td align="right">
+                        &nbsp;<font color="#ff9966">Failed</font>
+                      </td>
+                      <td align="right">
+                        &nbsp;<font color="#ff9966">Failed</font>
+                      </td>
+                      <td align="right">
+                        -127.9
+                      </td>
+                      <td align="right">
+                        -2353.8
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        fread
+                      </td>
+                      <td align="right">
+                        -325.0
+                      </td>
+                      <td align="right">
+                        126.5
+                      </td>
+                      <td align="right">
+                        -106.1
+                      </td>
+                      <td align="right">
+                        -94.3
+                      </td>
+                      <td align="right">
+                        -100.0
+                      </td>
+                      <td align="right">
+                        -83.8
+                      </td>
+                      <td align="right">
+                        14.7
+                      </td>
+                      <td align="right">
+                        -240.0
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        fprint
+                      </td>
+                      <td align="right">
+                        -60.0
+                      </td>
+                      <td align="right">
+                        -60.0
+                      </td>
+                      <td align="right">
+                        162.5
+                      </td>
+                      <td align="right">
+                        100.0
+                      </td>
+                      <td align="right">
+                        &nbsp;<font color="#ff9966">Failed</font>
+                      </td>
+                      <td align="right">
+                        &nbsp;<font color="#ff9966">Failed</font>
+                      </td>
+                      <td align="right">
+                        537.5
+                      </td>
+                      <td align="right">
+                        512.5
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        puzzle
+                      </td>
+                      <td align="right">
+                        107.6
+                      </td>
+                      <td align="right">
+                        183.5
+                      </td>
+                      <td align="right">
+                        -14.5
+                      </td>
+                      <td align="right">
+                        -690.0
+                      </td>
+                      <td align="right">
+                        &nbsp;<font color="#ff9966">Failed</font>
+                      </td>
+                      <td align="right" score="0.539129">
+                        &nbsp;<font color="#ff9966" score=
+                        "0.58607185">Failed</font>
+                      </td>
+                      <td align="right">
+                        -71.7
+                      </td>
+                      <td align="right">
+                        -1875.0
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        tak
+                      </td>
+                      <td align="right">
+                        126.8
+                      </td>
+                      <td align="right">
+                        -30.8
+                      </td>
+                      <td align="right">
+                        -131.8
+                      </td>
+                      <td align="right">
+                        -1940.0
+                      </td>
+                      <td align="right">
+                        -3.7
+                      </td>
+                      <td align="right">
+                        -370.8
+                      </td>
+                      <td align="right">
+                        -418.6
+                      </td>
+                      <td align="right">
+                        -15200.0
+                      </td>
+                    </tr>
+                    <tr valign="top">
+                      <td align="left">
+                        takl
+                      </td>
+                      <td align="right">
+                        111.9
+                      </td>
+                      <td align="right">
+                        -70.5
+                      </td>
+                      <td align="right">
+                        -371.6
+                      </td>
+                      <td align="right">
+                        -8918.2
+                      </td>
+                      <td align="right">
+                        -35.8
+                      </td>
+                      <td align="right">
+                        -777.9
+                      </td>
+                      <td align="right">
+                        -7731.6
+                      </td>
+                      <td align="right">
+                        -32966.7
+                      </td>
+                    </tr>
+                    <tr valign="top" score="0.43509904">
+                      <td align="left" score="0.56725395">
+                        takr
+                      </td>
+                      <td align="right">
+                        99.7
+                      </td>
+                      <td align="right">
+                        117.7
+                      </td>
+                      <td align="right">
+                        5.1
+                      </td>
+                      <td align="right">
+                        -663.0
+                      </td>
+                      <td align="right">
+                        107.4
+                      </td>
+                      <td align="right">
+                        -61.0
+                      </td>
+                      <td align="right">
+                        -247.5
+                      </td>
+                      <td align="right" score="0.576629">
+                        -2407.1
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br score="0.43862307">
+              </blockquote>
+              <h2>
+                Graphs<br score="0.46362308">
+              </h2>
+              <div align="center" score="0.7758149">
+                <blockquote score="0.46021727">
+                  <br score="0.4783203">
+                   
+                  <div align="left" score="0.63686526">
+                    <br score="0.4949967">
+                  </div>
+                  <table cellpadding="2" cellspacing="2" width=
+                  "100%" align="left" score="0.50092775">
+                    <tbody score="0.5121842">
+                      <tr score="0.55840284">
+                        <td valign="top" score="0.476355">
+                          <br>
+                           <br>
+                           <img src="images/totals.png" alt=
+                          "Totals excluding CTAK" width="860"
+                          height="348"> <br>
+                           <br>
+                           <img src="images/ctakabs.png" alt=
+                          "Absolute CTAK Performance" width="426"
+                          height="363"> &nbsp;<img src=
+                          "images/ctakrel.png" alt=
+                          "Relative CTAK Performance" width="425"
+                          height="363"> <br>
+                           <br>
+                           <img src="images/tc.png" alt=
+                          "Totals including CTAK" width="858"
+                          height="403" score="0.5965206"> <br>
+                           * Note that totals aren't very useful as
+                          failed benchmarks do not count against a
+                          Scheme system.<br score="0.6620275">
+                           
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </blockquote>
+              </div>
+              <br score="0.66358644">
+               
+              <h2 score="0.7135865">
+                Summary
+              </h2>
+              <blockquote score="0.6143677">
+                Optimized Bigloo comes up on top in most tests.
+                SISC outperforms interpreted JScheme in almost all
+                tests, often by a substantial margin. SISC is more
+                than thirteen times faster than any other tested
+                system in running CTAK, which tests performance of
+                continuation capture and invocation. &nbsp;The
+                exceptional performance in CTAK allows SISC to
+                nudge out even Bigloo in the overall times, despite
+                not having the 'advantage' of one or more failed
+                marks contributing nothing to the total time.<br>
+                <br>
+                 Also worth noting is that the Gabriel benchmarks
+                are "numerically biased", stressing different
+                aspects of an implementation but largely driving a
+                computational process. Many real world apps based
+                on non-computational loads (text-processing,
+                networking, data-mining, etc) are probably
+                underrepresented.<br>
+                <br>
+                 Remember, though, that these are only benchmarks.
+                &nbsp;Scheme systems should be evaluated primarily
+                for suitability to your given objective and
+                performance for the code you wish to execute.<br
+                score="0.43901372">
+              </blockquote>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p score="0.50880134">
+        <font face="Courier New,Courier" score="0.53650033"><font
+        color="#333333" score="0.50503373"><font size="-1" score=
+        "0.49199867"><br score="0.4790894">
+         (c) 2000-2002 Scott&nbsp;G. Miller</font></font></font>
+      </p>
+    </div>
+    <br>
+     <br>
+     <br>
+     <br score="0.4369385">
+  </body>
+</html>
+

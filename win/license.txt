@@ -1,0 +1,37 @@
+SOFTWARE LICENSE AGREEMENT 
+The software which accompanies this license (the "Software") is the property of Cematics LLC. or its licensors and is protected by copyright law. Cematics LLC. provides the Software and licenses its use worldwide. You assume responsibility for the selection of the Software to achieve your intended results, and for the installation, use, and results obtained from it. 
+
+License 
+
+You May: 
+
+
+Use one copy of the Software on a single computer; 
+Make one copy of the Software for archival purposes, or copy the software onto hard disk of your computer and retain the original for archival purposes; 
+Use the Software on a network, provided that you have a licensed copy of the Software for each computer that can access the Software over the network; 
+Modify the Software and/or merge it into another program for your use on the single computer. (Any portion of the Software merged into another program will continue to be subject to the terms and conditions of this Agreement). You must reproduce and include the copyright notice on any copy, modification or portion merged into another program; and 
+After written notice to Cematics LLC transfer the Software and the license to another party if the other party agrees to accept the terms and conditions of this Agreement. If you transfer the Software, you must at the same time either transfer all copies whether in printed or machine-readable form to the same party or destroy any copies not transferred; this includes all modifications and portions of the Software contained or merged into other programs. You must immediately notify Cematics LLC of the transfer. 
+YOU MAY NOT USE, COPY, MODIFY, OR TRANSFER THE SOFTWARE, OR ANY COPY, MODIFICATION OR MERGED PORTION, IN WHOLE OR IN PART, EXCEPT AS EXPRESSLY PROVIDED FOR IN THIS LICENSE. IF YOU TRANSFER POSSESSION OF ANY COPY, MODIFICATION OR MERGED PORTION OF THE SOFTWARE TO ANOTHER PARTY, YOUR LICENSE IS AUTOMATICALLY TERMINATED. 
+Term 
+
+The license is effective until terminated. You may terminate it at any time by destroying the Software altogether with all copies, modifications and merged portions in any form. It will also terminate upon conditions set forth elsewhere in this Agreement or if you fail to comply with any term or condition of this Agreement. You agree upon such termination to destroy the Software along with all copies, modifications and merged portions in any form. 
+
+Limited Warranty 
+
+THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM IS WITH YOU. SHOULD THE PROGRAM PROVE DEFECTIVE, YOU (AND NOT Cematics LLC OR AN AUTHORIZED COMPUTER DEALER) ASSUME THE ENTIRE COST OF ALL NECESSARY SERVICING, REPAIR OR CORRECTION. 
+
+SOME STATES DO NOT ALLOW THE EXCLUSION OF IMPLIED WARRANTIES, SO THE ABOVE EXCLUSION MAY NOT APPLY TO YOU. THIS WARRANTY GIVES YOU SPECIFIC LEGAL RIGHTS AND YOU MAY ALSO HAVE OTHER RIGHTS WHICH VARY FROM STATE TO STATE. 
+
+Cematics LLC does not warrant that the functions contained in the Software will meet your requirements or that the operation of the Software will be uninterrupted or error free.
+
+Limitations of Remedies 
+
+IN NO EVENT WILL CEMATICS LLC BE LIABLE TO YOU FOR ANY DAMAGES, INCLUDING ANY LOST PROFITS, LOST SAVINGS OR OTHER INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE EVEN IF Cematics LLC OR AN AUTHORIZED COMPUTER DEALER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, OR FOR ANY CLAIM BY ANY OTHER PARTY. 
+SOME STATES DO NOT ALLOW THE LIMITATION OR EXCLUSION OF LIABILITY FOR INCIDENTAL OR CONSEQUENTIAL DAMAGES SO THE ABOVE LIMITATION OR EXCLUSION MAY NOT APPLY TO YOU. IN NO CASE SHALL CEMATICS LLC's LIABILITY EXCEED THE PURCHASE PRICE FOR THE SOFTWARE. The disclaimers and limitations set forth above will apply regardless of whether you accept the Software. 
+
+General 
+
+You may not sublicense, assign or transfer this license except as expressly provided in this Agreement. Any attempt otherwise to sublicense, assign or transfer any of the rights, duties or obligations hereunder is void. 
+
+This Agreement shall be governed by the laws of the State of Pennsylvania. Should you have any questions concerning this Agreement, you may contact Cematics LLC. by emailing info@cematics.com. YOU ACKNOWLEDGE THAT YOU HAVE READ THIS AGREEMENT, UNDERSTAND IT AND AGREE TO BE BOUND BY ITS TERMS AND CONDITIONS. YOU FURTHER AGREE THAT IT IS THE COMPLETE AND EXCLUSIVE STATEMENT OF THE AGREEMENT BETWEEN US WHICH SUPERSEDES ANY PROPOSAL OR PRIOR AGREEMENT, ORAL OR WRITTEN, AND ANY OTHER COMMUNICATIONS BETWEEN US RELATING TO THE SUBJECT MATTER OF THIS AGREEMENT. 
+

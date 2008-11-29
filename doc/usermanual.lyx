@@ -1,0 +1,332 @@
+#LyX 1.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 220
+\textclass article
+\language english
+\inputencoding auto
+\fontscheme default
+\graphics default
+\paperfontsize default
+\spacing single 
+\papersize Default
+\paperpackage a4
+\use_geometry 0
+\use_amsmath 0
+\use_natbib 0
+\use_numerical_citations 0
+\paperorientation portrait
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\defskip medskip
+\quotes_language english
+\quotes_times 2
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+
+\layout Title
+
+Kanzi 1.0 User Manual
+\layout Standard
+\pagebreak_bottom 
+
+\begin_inset LatexCommand \tableofcontents{}
+
+\end_inset 
+
+
+\layout Section
+
+Introduction
+\layout Standard
+
+This is the User Manual for Kanzi, Cematics' intelligent web development
+ tool.
+ Kanzi is designed to bring the flexibility of tools that computer programmers
+ have been using for years, to the world of web development.
+ Kanzi's core goal is to integrate seamlessly with the web development tools
+ with which you are already familiar, meaning that you can get started with
+ it immediately.
+\layout Standard
+
+Kanzi is useful when you need to make changes to a large number of web pages.
+ You demonstrate the changes you need made on one of the pages using your
+ favourite HTML editing tool, and Kanzi will intelligently figure out what
+ has changed, and how those changes are to be applied to the other pages
+ you have selected.
+\layout Section
+
+Installation and Registration
+\layout Subsection
+
+Requirements
+\layout Standard
+
+Kanzi requires Java version 1.2 or greater.
+ This may be downloaded from 
+\begin_inset LatexCommand \url{http://java.sun.com/getjava/}
+
+\end_inset 
+
+, and will require just a couple of minutes to install for most users.
+ Kanzi will work on any version of Windows that supports Java, including
+ Windows 98, Windows 2000, Windows NT, Windows XP, and Windows ME.
+\layout Subsection
+
+Installation
+\layout Standard
+
+Double click on the Kanzi installer, which you can download from 
+\begin_inset LatexCommand \url{http://cematics.com/kanzi/}
+
+\end_inset 
+
+, and follow the steps in the installation Wizard which appears.
+ In most cases, you will not need to change any of the default settings.
+\layout Subsection
+
+Registration
+\layout Standard
+
+Initially when you install Kanzi it will be in evaluation mode, this will
+ be indicated by the words 
+\begin_inset Quotes eld
+\end_inset 
+
+Evaluation Version
+\begin_inset Quotes erd
+\end_inset 
+
+ at the bottom of the Kanzi window.
+ This is designed to allow you to determine whether Kanzi is useful to you
+ before purchasing it, but it cannot be used with a real website as it randomly
+ replaces text with a warning message in any web pages that it modifies.
+\layout Standard
+
+To use Kanzi properly, you must obtain a license key.
+ This may be purchased from 
+\begin_inset LatexCommand \url{http://cematics.com/kanzi/}
+
+\end_inset 
+
+.
+\layout Standard
+
+After purchasing the license key, it will be emailed to the address you
+ provided.
+ To register, follow these simple steps:
+\layout Enumerate
+
+Launch Kanzi
+\layout Enumerate
+
+Click on the 
+\begin_inset Quotes eld
+\end_inset 
+
+Enter License Key
+\begin_inset Quotes erd
+\end_inset 
+
+ button
+\layout Enumerate
+
+Copy the license key from the email (Ctrl+C) including the lines containing
+ the words 
+\begin_inset Quotes eld
+\end_inset 
+
+BEGIN
+\begin_inset Quotes erd
+\end_inset 
+
+ and 
+\begin_inset Quotes eld
+\end_inset 
+
+END
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Enumerate
+
+Click on 
+\begin_inset Quotes eld
+\end_inset 
+
+OK
+\begin_inset Quotes erd
+\end_inset 
+
+
+\layout Standard
+
+If you have any problems with this, please contact Cematics Support at support@c
+ematics.com, please include the email address that you used to register Kanzi.
+\layout Section
+
+Using Kanzi
+\layout Standard
+
+There are three basic steps to using Kanzi:
+\layout Enumerate
+
+Select the 
+\begin_inset Quotes eld
+\end_inset 
+
+example
+\begin_inset Quotes erd
+\end_inset 
+
+ file, and make the changes you want to it
+\layout Enumerate
+
+Select the files to which you want those changes to be applied
+\layout Enumerate
+
+Review the changes Kanzi made, then either commit or undo them
+\layout Subsection
+
+Training Kanzi
+\layout Standard
+
+When you first start Kanzi, you will be invited to select the 
+\begin_inset Quotes eld
+\end_inset 
+
+example
+\begin_inset Quotes erd
+\end_inset 
+
+ file.
+ This should be one of the HTML pages that you want to modify.
+ You should then use your favourite HTML editor
+\begin_inset Foot
+collapsed true
+
+\layout Standard
+
+We recommend that you use the same HTML editor that was used to create the
+ files if possible.
+\end_inset 
+
+ to make the modifications to that page that you want to apply to the other
+ pages, and save it.
+\layout Standard
+
+Once you have saved the file, you will be able to click on 
+\begin_inset Quotes eld
+\end_inset 
+
+Next
+\begin_inset Quotes erd
+\end_inset 
+
+ and move on to the next step.
+\layout Subsection
+
+Selecting target pages
+\layout Standard
+
+Next you must select the pages to which you would like Kanzi to apply these
+ changes.
+ You can select each file individually using the 
+\begin_inset Quotes eld
+\end_inset 
+
+Add File(s)
+\begin_inset Quotes erd
+\end_inset 
+
+ button, or add all HTML files in a directory using the 
+\begin_inset Quotes eld
+\end_inset 
+
+Add a Directory
+\begin_inset Quotes erd
+\end_inset 
+
+ button.
+\layout Standard
+
+You may now decide which of these files you would like those changes applied
+ to, by clicking on them you may select and deselect them.
+ Only the selected files will be modified.
+\layout Standard
+
+A much more convenient way to select the files you would like to modify
+ is to use the Similarity Filter.
+ You can activate it by clicking on the check box.
+ You may now move the slider up and down, and files will be selected and
+ deselected based on their similarity to the example file which you modified
+ in the previous step.
+\layout Standard
+
+Click 
+\begin_inset Quotes eld
+\end_inset 
+
+Next
+\begin_inset Quotes erd
+\end_inset 
+
+ when the files you wish to modify are highlighted.
+\layout Subsection
+
+Reviewing changes
+\layout Standard
+
+The changes will now be applied to the pages.
+ This should occur quite quickly, but the time required may vary depending
+ on the extent of the changes to the example page, and the number of target
+ pages.
+\layout Standard
+
+You may now review the changes Kanzi has made to these pages.
+ You can launch a web-browser pointing at the (modified) example page by
+ clicking on 
+\begin_inset Quotes eld
+\end_inset 
+
+Review Your Documents
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ You should check the target files to ensure that Kanzi has applied the
+ changes correctly.
+\layout Standard
+
+If it has, you can apply the changes permenantly by clicking on 
+\begin_inset Quotes eld
+\end_inset 
+
+Finish
+\begin_inset Quotes erd
+\end_inset 
+
+.
+ You can undo the changes by clicking on 
+\begin_inset Quotes eld
+\end_inset 
+
+Undo
+\begin_inset Quotes erd
+\end_inset 
+
+.
+\layout Section
+
+Troubleshooting
+\layout Subsection
+
+Kanzi applied my changes incorrectly
+\layout Standard
+
+Kanzi is smart, but it does have limitations and may occasionally apply
+ your changes incorrectly.
+ If this happens, go back, apply some of the changes, then use Kanzi again
+ to apply the rest of them
+\the_end

@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ -d $JAVA_HOME ]
+then 
+  JAVA_EXEC=$JAVA_HOME/bin/java
+else
+  JAVA_EXEC=java
+fi
+
+$JAVA_EXEC -jar msmd.jar 
